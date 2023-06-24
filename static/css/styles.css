@@ -1,0 +1,378 @@
+/* * {
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+/* p {
+  color: #121212;
+}
+
+/* h1 h2 h3 h4 {
+  color: black;
+} */
+
+.hidden {
+  display: none;
+}
+.info-unicode {
+  color: white;
+  align-self: center;
+  /* font-size: 3.5vw; */
+  /* font-size: 1.5vw; */
+  padding-right: 0.25rem;
+  margin-left: -1.5vw;
+}
+
+@media only screen and (min-width: 1000px) {
+  .info-unicode {
+    /* font-size: 1.5vw; */
+  }
+}
+
+.modal-btn:hover {
+  cursor: pointer;
+}
+
+.uk-input,
+.module-input {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* tank volume hidden div */
+.modal {
+  display: none;
+  position: fixed; /*taken out of flow, positioned reletive to parent*/
+  /* border: solid 1px red; */
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.t1-modal-header {
+  color: white;
+}
+
+.tank-modal-header-heading {
+  color: white;
+  margin-bottom: 0px;
+}
+
+.tank-heading {
+  color: white;
+}
+
+.modal-content {
+  position: relative;
+  /* background-color: aqua; */
+  background-color: white;
+  padding: 1.5rem;
+  margin: auto;
+  width: 75%;
+  max-width: 900px;
+  border: solid 1px black;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  transition: all 0.3s ease-in-out;
+}
+
+.t1-modal-header {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* border: solid 1px black; */
+}
+
+.t1-modal-header h2 {
+  text-align: center;
+  /* border: solid 1px black; */
+  flex-grow: 1;
+}
+
+.close-btn {
+  /* float: right;  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-inline-end: 0.25rem;
+  color: #ffffff;
+  background-color: #ee395b;
+  /* padding: 0 0.5rem 0 0.5rem; */
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+  /* color: lightgray; */
+  color: #ee395b;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.svg-form-container {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  /* align-items: center; */
+}
+
+.tank-svg {
+  width: 50%;
+}
+
+svg {
+  /* border: solid 1px black; */
+  align-self: center;
+  /* flex-grow: 1; */
+}
+
+.prop-number {
+    font-size: 0.65rem;
+    fill: #171717;
+  }
+
+  .last-updated {
+    font-size: 0.65rem;
+    fill: #171717;
+  }
+
+
+#t2-last-updated {
+  border: 0.5px solid var(--blue-gray);
+  color: rgba(252, 255, 83, 0.5);
+  font-size: 1.5rem;
+}
+
+.prop2-number {
+  font-size: 1.5rem;
+}
+
+.right-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.counter-container {
+  margin: 0;
+  padding: 0;
+}
+
+.change-over-heading {
+  margin-bottom: 0.5rem;
+}
+
+.change-over-time {
+  /* background-color: burlywood; */
+  background-color: rgba(252, 255, 83, 0.5);
+  margin: 0;
+  padding: 0;
+}
+
+.t1-coder-values-diplay {
+  flex-grow: 1;
+  /* border: solid 1px black; */
+}
+
+.t1-coder-values-diplay p {
+  margin: 0.25rem;
+}
+
+/* Form */
+.tank-modal-form {
+  margin-top: 1.25rem;
+}
+
+.can-coder-label {
+    font-size: 1rem;
+}
+
+.can-size-label {
+    font-size: 1rem;
+}
+
+.t1-can-coder p {
+  margin-bottom: 0.5rem;
+  /* font-size: 1.5rem; */
+}
+
+.t1-can-size p {
+  margin-bottom: 0.5rem;
+  /* font-size: 1.5rem; */
+}
+
+.t1-can-size {
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-update-btn {
+  display: block;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-btn-p {
+  margin: 0;
+  color: white;
+}
+/* .modal-update-btn p { */
+/*   color: white; */
+/* } */
+
+.modal-update-btn:disabled p {
+  color: #171717;
+}
+
+.btn-paragraphs {
+  margin: 0;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animate-on-top {
+  from {
+    top: 0px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animate-on-top {
+  from {
+    top: 0px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* link to method is in tooltip.js */
+/* transitioning test  ** all three classes are set to the hidden element at start*/
+/* .box {
+  background: goldenrod;
+  transition: all 1s linear;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
+} */
+
+/* end */
+
+/* sequence batch hidden div */
+.modal-tooltip {
+  display: none;
+  position: relative; /*taken out of flow, positioned reletive to parent*/
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  /* padding-top: 50px; */
+  /* padding-bottom: 2rem; */
+  left: 0;
+  top: 0px;
+  width: 150px;
+  /* height: 160px; */
+  /* overflow: scroll; */
+  overflow: auto;
+  -webkit-animation-name: animate-on-top;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animate-on-top;
+  animation-duration: 0.2s;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.small-top-margin {
+  margin-top: 0.5rem;
+}
+
+.zero-bottom-margin {
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .modal {
+    padding-top: 0;
+    overflow: scroll;
+  }
+
+  .moda-content {
+    width: 100vw;
+  }
+
+  .tank-svg {
+    width: 40vw;
+  }
+
+  .svg-form-container {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  /* box being 0 0 250 190 */
+  .prop-number {
+    font-size: 0.75rem;
+  }
+
+  .last-updated {
+    font-size: 0.75rem;
+  }
+
+  #tank1-last-updated {
+    color: red;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .tank-svg {
+    width: 50vw;
+  }
+
+@media only screen and (max-width: 450px) {
+  .tank-svg {
+    width: 60vw;
+  }
+}

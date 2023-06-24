@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.7/css/uikit.min.css"
+      integrity="sha512-J6C1FhNHlGkRsqXrmDprCi4TAe7S3QXXkClKopWHzeqhVTaFjxlSJoXDcfMVNWL79nf4Yqi7moHYP7bzGTF1gw=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- local font awesome files-->
+    <script defer src="./FontAwesome/brands.js"></script>
+    <script defer src="./FontAwesome/regular.js"></script>
+    <script defer src="./FontAwesome/solid.js"></script>
+    <script defer src="./FontAwesome/fontawesome.js"></script>
+
+    <title>Compounding Kanban</title>
+  </head>
+
+  <body>
+    <div class="main-kanban-container">
+      <!-- Kanban Header -->
+      <header class="kanban-header">
+        <h1 class="header-text">Kanban Board</h1>
+        <nav class="main-nav">
+          <a class="admin-link" href="./admin.html">Admin</a>
+          <a class="gear-icon" href="./admin.html"
+            ><i class="fa-solid fa-gear"></i
+          ></a>
+        </nav>
+        <!-- <div class="banner-container">
+          <img src="Images/header.png" />
+        </div> -->
+      </header>
+      <!-- viewBox="0 0 145 190" -->
+      <!-- Tank 1 -->
+      <div class="tank-box one" id="tank-1">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 250 190"
+          width="100"
+          height="100"
+          class="tank-svg tank-1-svg hidden"
+        >
+          <defs>
+            <linearGradient id="Gradient1" x1="0" y1="100%" x2="0" y2="0%">
+              <stop class="tank-1-bottom-column" offset="0%" />
+              <stop class="tank-1-top-column" offset="50%" />
+              <stop class="tank-1-head-space" offset="50%" />
+            </linearGradient>
+
+            <style type="text/css">
+              #t1-column {
+                stroke: black;
+                fill: url(#Gradient1);
+                fill-opacity: 0.8;
+                stroke-opacity: 0.8;
+              }
+
+              .stop1 {
+                stop-color: pink;
+                stop-opacity: 1;
+              }
+              .stop2 {
+                stop-color: yellow;
+                stop-opacity: 1;
+              }
+
+              .stop3 {
+                stop-color: teal;
+              }
+
+              .theV {
+                fill: salmon;
+                fill-opacity: 0.8;
+                stroke: black;
+                stroke-width: 1;
+                stroke-opacity: 0.8;
+              }
+            </style>
+          </defs>
+
+          <g class="tank">
+            <!-- column -->
+            <path
+              id="t1-column"
+              class="t1-column"
+              d=" M 0 0 
+                    H 84 
+                    V 138.25 
+                    H 0 
+                    L 0 0"
+            />
+
+            <!-- the v -->
+            <path
+              id="tank-1-theV"
+              class="theV"
+              d=" M 0 138.25
+                    Q 42 152.25 
+                    84 138.25
+                "
+            />
+          </g>
+
+          <g class="prop">
+            <!-- shaft -->
+            <path
+              id="prop"
+              class="prop"
+              d=" M 42 0
+                    V 115.4
+                "
+              stroke="black"
+            />
+
+            <!-- top prop -->
+            <path
+              id="top-prop"
+              class="prop"
+              d="M 21 68.75
+                    H 63    
+                "
+              stroke="black"
+            />
+
+            <!-- bottom prop -->
+            <path
+              id="bottom-prop"
+              class="prop"
+              d="M 21 115.4
+                    H 63    
+                "
+              stroke="black"
+            />
+          </g>
+
+          <g class="bottom-prop-text">
+            <path
+              id="dashed-line"
+              class="dashed-line"
+              d=" M 65 115.4
+                    H 115 
+                "
+              stroke="black"
+              stroke-linecap="butt"
+              stroke-dasharray="1,2"
+            />
+            <text
+              id="prop-number"
+              class="prop-number"
+              font-size="0.5rem"
+              text-anchor="start"
+              x="118"
+              y="115.4"
+            ></text>
+          </g>
+
+          <text
+            id="t1-last-updated"
+            class="last-updated"
+            font-size="0.5rem"
+            text-anchor="start"
+            x="0"
+            y="165"
+          ></text>
+        </svg>
+      </div>
+
+      <!-- Tank 2 -->
+      <div class="tank-box two" id="tank-2">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 180 190"
+          width="100"
+          height="100"
+          class="tank-svg tank-2-svg hidden"
+        >
+          <defs>
+            <linearGradient id="Gradient2" x1="0" y1="100%" x2="0" y2="0%">
+              <stop class="tank-2-bottom-column" offset="0%" />
+              <stop class="tank-2-top-column" offset="50%" />
+              <stop class="tank-2-head-space" offset="50%" />
+            </linearGradient>
+
+            <style type="text/css">
+              #t2-column {
+                stroke: black;
+                fill: url(#Gradient2);
+                fill-opacity: 0.8;
+                stroke-opacity: 0.8;
+              }
+            </style>
+          </defs>
+
+          <g class="tank">
+            <!-- column -->
+            <path
+              id="t2-column"
+              class="t2-column"
+              d=" M 0 0 
+                            H 103.6563
+                            V 101.5 
+                            H 0 
+                            L 0 0"
+            />
+
+            <!-- the v -->
+            <path
+              id="tank-2-theV"
+              class="theV"
+              d=" M 0 101.5
+                            Q 50.75 115 
+                            103.6563 101.5
+                        "
+            />
+          </g>
+
+          <g class="prop">
+            <!-- shaft -->
+            <path
+              id="prop"
+              class="prop"
+              d=" M  51.8 0
+                            V 93.4
+                        "
+              stroke="black"
+            />
+
+            <!-- top prop -->
+            <path
+              id="top-prop"
+              class="prop"
+              d="M 25.9 49.5
+                            H 77.7    
+                        "
+              stroke="black"
+            />
+
+            <!-- bottom prop -->
+            <path
+              id="bottom-prop"
+              class="prop"
+              d="M 25.9 93.4
+                            H 77.7    
+                        "
+              stroke="black"
+            />
+          </g>
+
+          <g class="bottom-prop-text">
+            <path
+              id="dashed-line"
+              class="dashed-line"
+              d=" M 79 93.4
+                            H 133.6563
+                        "
+              stroke="black"
+              stroke-linecap="butt"
+              stroke-dasharray="1,2"
+            />
+            <text
+              id="prop-number"
+              class="prop-number"
+              font-size="0.5rem"
+              text-anchor="start"
+              x="135"
+              y="93.4"
+            ></text>
+          </g>
+
+          <text
+            id="t1-last-updated"
+            class="last-updated"
+            font-size="0.5rem"
+            text-anchor="start"
+            x="0"
+            y="127.75"
+          ></text>
+        </svg>
+      </div>
+
+      <!-- Tank 3 -->
+      <div class="tank-box three" id="tank-3">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 180 190"
+          width="100"
+          height="100"
+          class="tank-svg tank-3-svg hidden"
+        >
+          <defs>
+            <linearGradient id="Gradient3" x1="0" y1="100%" x2="0" y2="0%">
+              <stop class="tank-3-bottom-column" offset="0%" />
+              <stop class="tank-3-top-column" offset="50%" />
+              <stop class="tank-3-head-space" offset="50%" />
+            </linearGradient>
+
+            <style type="text/css">
+              #t3-column {
+                stroke: black;
+                fill: url(#Gradient3);
+                fill-opacity: 0.8;
+                stroke-opacity: 0.8;
+              }
+            </style>
+          </defs>
+
+          <g class="tank">
+            <!-- column -->
+            <path
+              id="t3-column"
+              class="t3-column"
+              d=" M 0 0 
+                            H 103.6563
+                            V 101.5 
+                            H 0 
+                            L 0 0"
+            />
+
+            <!-- the v -->
+            <path
+              id="tank-3-theV"
+              class="theV"
+              d=" M 0 101.5
+                            Q 50.75 115 
+                            103.6563 101.5
+                        "
+            />
+          </g>
+
+          <g class="prop">
+            <!-- shaft -->
+            <path
+              id="prop"
+              class="prop"
+              d=" M  51.8 0
+                            V 84.2
+                        "
+              stroke="black"
+            />
+
+            <!-- top prop -->
+            <path
+              id="top-prop"
+              class="prop"
+              d="M 25.9 49.5
+                            H 77.7    
+                        "
+              stroke="black"
+            />
+
+            <!-- bottom prop -->
+            <path
+              id="bottom-prop"
+              class="prop"
+              d="M 25.9 84.2
+                            H 77.7    
+                        "
+              stroke="black"
+            />
+          </g>
+
+          <g class="bottom-prop-text">
+            <path
+              id="dashed-line"
+              class="dashed-line"
+              d=" M 79 84.2
+                            H 133.6563
+                        "
+              stroke="black"
+              stroke-linecap="butt"
+              stroke-dasharray="1,2"
+            />
+            <text
+              id="prop-number"
+              class="prop-number"
+              font-size="0.5rem"
+              text-anchor="start"
+              x="135"
+              y="84.2"
+            >
+              8000 cans
+            </text>
+          </g>
+
+          <text
+            id="t1-last-updated"
+            class="last-updated"
+            font-size="0.5rem"
+            text-anchor="start"
+            x="0"
+            y="127.75"
+          ></text>
+        </svg>
+      </div>
+
+      <!-- Tank 4 -->
+      <div class="tank-box four" id="tank-4">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 145 190"
+          width="100"
+          height="100"
+          class="tank-svg tank-4-svg hidden"
+        >
+          <defs>
+            <linearGradient id="Gradient4" x1="0" y1="100%" x2="0" y2="0%">
+              <stop class="tank-4-bottom-column" offset="0%" />
+              <stop class="tank-4-top-column" offset="50%" />
+              <stop class="tank-4-head-space" offset="50%" />
+            </linearGradient>
+
+            <style type="text/css">
+              #t4-column {
+                stroke: black;
+                fill: url(#Gradient4);
+                fill-opacity: 0.8;
+                stroke-opacity: 0.8;
+              }
+            </style>
+          </defs>
+
+          <g class="tank">
+            <!-- column -->
+            <path
+              id="t4-column"
+              class="t4-column"
+              d=" M 0 0 
+                            H 84 
+                            V 138.25 
+                            H 0 
+                            L 0 0"
+            />
+
+            <!-- the v -->
+            <path
+              id="tank-4-theV"
+              class="theV"
+              d=" M 0 138.25
+                            Q 42 152.25 
+                            84 138.25
+                        "
+            />
+          </g>
+
+          <g class="prop">
+            <!-- shaft -->
+            <path
+              id="prop"
+              class="prop"
+              d=" M 42 0
+                            V 125
+                        "
+              stroke="black"
+            />
+
+            <!-- top prop -->
+            <path
+              id="top-prop"
+              class="prop"
+              d="M 21 68.75
+                            H 63    
+                        "
+              stroke="black"
+            />
+
+            <!-- bottom prop -->
+            <path
+              id="bottom-prop"
+              class="prop"
+              d="M 21 125
+                            H 63    
+                        "
+              stroke="black"
+            />
+          </g>
+
+          <g class="bottom-prop-text">
+            <path
+              id="dashed-line"
+              class="dashed-line"
+              d=" M 65 124
+                            H 115 
+                        "
+              stroke="black"
+              stroke-linecap="butt"
+              stroke-dasharray="1,2"
+            />
+            <text
+              id="prop-number"
+              class="prop-number"
+              font-size="0.5rem"
+              text-anchor="start"
+              x="118"
+              y="124"
+            >
+              5000
+            </text>
+          </g>
+
+          <text
+            id="t1-last-updated"
+            class="last-updated"
+            font-size="0.5rem"
+            text-anchor="start"
+            x="0"
+            y="165"
+          ></text>
+        </svg>
+      </div>
+
+      <!-- Tank 5 -->
+      <div class="tank-box five" id="tank-5">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 145 190"
+          width="10"
+          height="10"
+          class="tank-svg tank-5-svg hidden"
+        >
+          <defs>
+            <linearGradient id="Gradient5" x1="0" y1="100%" x2="0" y2="0%">
+              <stop class="tank-5-bottom-column" offset="0%" />
+              <stop class="tank-5-top-column" offset="50%" />
+              <stop class="tank-5-head-space" offset="50%" />
+            </linearGradient>
+
+            <style type="text/css">
+              #t5-column {
+                stroke: black;
+                fill: url(#Gradient5);
+                fill-opacity: 0.8;
+                stroke-opacity: 0.8;
+              }
+            </style>
+          </defs>
+
+          <g class="tank">
+            <!-- column -->
+            <path
+              id="t5-column"
+              class="t5-column"
+              d=" M 0 0 
+                            H 84 
+                            V 149.75 
+                            H 0 
+                            L 0 0"
+            />
+
+            <!-- the v -->
+            <path
+              id="tank-5-theV"
+              class="theV"
+              d=" M 0 149.75
+                            Q 42 160.25 
+                            84 149.75
+                        "
+            />
+          </g>
+
+          <g class="prop">
+            <!-- shaft -->
+            <path
+              id="prop"
+              class="prop"
+              d=" M 42 0
+                            V 137
+                        "
+              stroke="black"
+            />
+
+            <!-- top prop -->
+            <path
+              id="top-prop"
+              class="prop"
+              d="M 21 96
+                            H 63    
+                        "
+              stroke="black"
+            />
+
+            <!-- bottom prop -->
+            <path
+              id="bottom-prop"
+              class="prop"
+              d="M 21 137
+                            H 63    
+                        "
+              stroke="black"
+            />
+          </g>
+
+          <g class="bottom-prop-text">
+            <path
+              id="dashed-line"
+              class="dashed-line"
+              d=" M 65 137
+                            H 115 
+                        "
+              stroke="black"
+              stroke-linecap="butt"
+              stroke-dasharray="1,2"
+            />
+            <text
+              id="prop-number"
+              class="prop-number"
+              font-size="0.5rem"
+              text-anchor="start"
+              x="118"
+              y="137"
+            >
+              5000
+            </text>
+          </g>
+
+          <text
+            id="t1-last-updated"
+            class="last-updated"
+            font-size="0.5rem"
+            text-anchor="start"
+            x="0"
+            y="173.25"
+          ></text>
+        </svg>
+      </div>
+
+      <!-- Tank 6 -->
+      <div class="tank-box six" id="tank-6">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 145 190"
+          width="10"
+          height="10"
+          class="tank-svg tank-6-svg hidden"
+        >
+          <defs>
+            <linearGradient id="Gradient6" x1="0" y1="100%" x2="0" y2="0%">
+              <stop class="tank-6-bottom-column" offset="0%" />
+              <stop class="tank-6-top-column" offset="50%" />
+              <stop class="tank-6-head-space" offset="50%" />
+            </linearGradient>
+
+            <style type="text/css">
+              #t6-column {
+                stroke: black;
+                fill: url(#Gradient6);
+                fill-opacity: 0.8;
+                stroke-opacity: 0.8;
+              }
+            </style>
+          </defs>
+
+          <g class="tank">
+            <!-- column -->
+            <path
+              id="t6-column"
+              class="t6-column"
+              d=" M 0 0 
+                            H 84 
+                            V 149.75 
+                            H 0 
+                            L 0 0"
+            />
+
+            <!-- the v -->
+            <path
+              id="tank-6-theV"
+              class="theV"
+              d=" M 0 149.75
+                            Q 42 160.25 
+                            84 149.75
+                        "
+            />
+          </g>
+
+          <g class="prop">
+            <!-- shaft -->
+            <path
+              id="prop"
+              class="prop"
+              d=" M 42 0
+                            V 137
+                        "
+              stroke="black"
+            />
+
+            <!-- top prop -->
+            <path
+              id="top-prop"
+              class="prop"
+              d="M 21 96
+                            H 63    
+                        "
+              stroke="black"
+            />
+
+            <!-- bottom prop -->
+            <path
+              id="bottom-prop"
+              class="prop"
+              d="M 21 137
+                            H 63    
+                        "
+              stroke="black"
+            />
+          </g>
+
+          <g class="bottom-prop-text">
+            <path
+              id="dashed-line"
+              class="dashed-line"
+              d=" M 65 137
+                            H 115 
+                        "
+              stroke="black"
+              stroke-linecap="butt"
+              stroke-dasharray="1,2"
+            />
+            <text
+              id="prop-number"
+              class="prop-number"
+              font-size="0.5rem"
+              text-anchor="start"
+              x="118"
+              y="137"
+            >
+              5000
+            </text>
+          </g>
+
+          <text
+            id="t1-last-updated"
+            class="last-updated"
+            font-size="0.5rem"
+            text-anchor="start"
+            x="0"
+            y="173.25"
+          ></text>
+        </svg>
+
+        <!-- <header><h6 class="tank-num">Tank 6</h6></header>
+
+        <div class="tank-box-inside-container">
+          <div class="left">
+            <img src="./Images/Kiwi.png" />
+          </div>
+
+          <div class="right">
+            <div class="centered-container">
+              <div class="centered">
+                <p class="seq-p">1/1</p>
+                <p class="stage-p">Dwelling</p>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <p>Gal: 2500</p>
+              <p>Cans: 35000</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <!--***************************************************LINE 1 SEQUENCE ***************************************** -->
+
+      <div class="box l1-runs">
+        <header class="sequence-header">
+          <h3 class="line-run-heading">Line 1 Production Sequence</h3>
+        </header>
+        <div class="l1-runs-inner">
+          <div class="arrow-second">
+            <div class="l1-second-shift">
+              <!-- <p id="l1-second-shift-header">2nd. Shift</p>                           //commenting out to be able to save notes for both lines at same time -->
+              <p id="l1-second-shift-dates"></p>
+            </div>
+            <img class="arrow" src="./Images/arrow.svg" />
+          </div>
+
+          <!-- <div class="sequence-card">
+            <div class="run-details">
+              <span class="oz">12oz.</span>
+              <span class="coupons">Coupons</span>
+              <span class="canadian">Canadian</span>
+              <span class="split">Split</span>
+              <span class="run-note">Note</span>
+            </div>
+
+            <div class="num-frag">
+              <p>5</p>
+              <img src="./Images/kiwi.png" alt="" />
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!--******************************************************** LINE 2 SEQUENCE ***************************************** -->
+      <div class="box l2-runs">
+        <header class="sequence-header">
+          <h3 class="line-run-heading">Line 2 Production Sequence</h3>
+        </header>
+        <div class="l2-runs-inner">
+          <div class="arrow-second">
+            <div class="l2-second-shift">
+              <!-- <p id="l2-second-shift-header">2nd. Shift</p>                                       //commenting out to be able to save notes for both lines at same time -->
+              <p id="l2-second-shift-dates"></p>
+            </div>
+            <img class="arrow" src="./Images/arrow.svg" />
+          </div>
+        </div>
+      </div>
+      <!--******************************************************** SIDEBAR ***************************************** -->
+      <div class="box notes">
+        <h2 class="notes-header">Notes</h2>
+        <div class="note-btn-container">
+          <button
+            class="uk-button uk-button-small uk-button-default"
+            uk-toggle="target:#cans-per-gallon"
+          >
+            Cans per Gallon
+          </button>
+
+          <div id="cans-per-gallon" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+              <button
+                class="uk-modal-close-default"
+                type="button"
+                uk-close
+              ></button>
+              <table
+                class="uk-table uk-table-small uk-table-striped uk-table-hover uk-width-auto"
+              >
+                <thead>
+                  <tr>
+                    <th>Can Size</th>
+                    <th>Cans per Gallon</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>6</td>
+                    <td>22</td>
+                  </tr>
+
+                  <tr>
+                    <td>12</td>
+                    <td>11</td>
+                  </tr>
+
+                  <tr>
+                    <td>24</td>
+                    <td>5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <button
+            class="uk-button uk-button-small uk-button-default"
+            uk-toggle="target:#gallons-at-prop"
+          >
+            Gallons at Bottom Prop
+          </button>
+
+          <div id="gallons-at-prop" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+              <button
+                class="uk-modal-close-default"
+                type="button"
+                uk-close
+              ></button>
+
+              <table
+                class="uk-table uk-table-small uk-table-striped uk-table-hover uk-width-auto"
+              >
+                <thead>
+                  <tr>
+                    <th>Tank</th>
+                    <th>Bottom Prop</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tank 1</td>
+                    <td>400</td>
+                  </tr>
+                  <tr>
+                    <td>Tank 2</td>
+                    <td>500</td>
+                  </tr>
+                  <tr>
+                    <td>Tank 3</td>
+                    <td>500</td>
+                  </tr>
+                  <tr>
+                    <td>Tank 4</td>
+                    <td>400</td>
+                  </tr>
+                  <tr>
+                    <td>Tank 5</td>
+                    <td>400</td>
+                  </tr>
+                  <tr>
+                    <td>Tank 6</td>
+                    <td>500</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--! link for development purposes -->
+    <!-- <a href="./admin.html">Compounding Admin</a> -->
+
+    <script type="module" src="./js/kanbanBuilds.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.7/js/uikit.min.js"
+      integrity="sha512-8qiRasoFXMiNj3lzriKW6BKSPpSgUvv+5spP1TkNs2yf2WY9B263HSkMcCq4Ym2H9VpzzqhcJUvjBjKkzMCFyw=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.7/js/uikit-icons.min.js"
+      integrity="sha512-yBrRMXt+csYXtowumQsVoq3TZiwYGDBIRPCLnGm4Cuu0ly2ow3Q2KAepozpy6mdewpkZl/NcbqBKb8789cCygg=="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

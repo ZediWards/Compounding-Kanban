@@ -1,0 +1,674 @@
+:root {
+  --blue-gray: #64748b;
+  --ps-brand-pink: #a3238e;
+  --ps-pink-btn: #a3238e;
+  --brand-blue: #022259;
+  --brand-blue-hover: hsl(218, 84%, 30%);
+  --blue-btn: #0075c9;
+
+  --citrus-grad: rgba(255, 255, 159, 75%);
+  --strawberry-grad: rgba(196, 62, 74, 75%);
+  --kiwi-grad: rgba(122, 150, 15, 75%);
+  --blueberry-grad: rgba(79, 134, 247, 75%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #171717;
+}
+
+img {
+  max-width: 100%;
+}
+
+.citrus-gradient {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(transparent, var(--citrus-grad));
+}
+
+.citrus-gradient::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: 1;
+  background: url("../Images/lemon.png") 0 0 repeat;
+  transform: rotate(10deg);
+  background-size: 8%;
+  opacity: 4%;
+}
+
+.strawberry-gradient {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(transparent, var(--strawberry-grad));
+}
+
+.strawberry-gradient::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: 1;
+  background: url("../Images/strawberry.png") 0 0 repeat;
+  transform: rotate(54deg);
+  background-size: 8%;
+  opacity: 8%;
+}
+
+.kiwi-gradient {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(transparent, var(--kiwi-grad));
+}
+
+.kiwi-gradient::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: 1;
+  background: url("../Images/kiwi.png") 0 0 repeat;
+  transform: rotate(54deg);
+  background-size: 8%;
+  opacity: 8%;
+}
+
+.blueberry-gradient {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(transparent, var(--blueberry-grad));
+}
+
+.blueberry-gradient::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: 1;
+  background: url("../Images/blueberry.png") 0 0 repeat;
+  transform: rotate(54deg);
+  background-size: 8%;
+  opacity: 8%;
+}
+/************************************** KanBan ***********************************/
+
+.main-kanban-container {
+  max-width: 100%;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
+  grid-template-rows:
+    repeat(1, auto) repeat(6, minmax(100px, 1fr))
+    repeat(2, minmax(100px, 0.6fr)) repeat(1, minmax(100px, auto));
+  gap: 0.5rem 30px;
+  margin: auto;
+  padding-inline: 1rem;
+  border: 1px solid var(--blue-gray);
+  grid-template-areas:
+    "Header"
+    "T1"
+    "T2"
+    "T3"
+    "T4"
+    "T5"
+    "T6"
+    "L1"
+    "L2"
+    "Notes";
+}
+
+.kanban-header {
+  grid-area: Header;
+}
+
+.one {
+  grid-area: T1;
+}
+.two {
+  grid-area: T2;
+}
+.three {
+  grid-area: T3;
+}
+.four {
+  grid-area: T4;
+}
+.five {
+  grid-area: T5;
+}
+.six {
+  grid-area: T6;
+}
+.l1-runs {
+  grid-area: L1;
+  display: flex;
+  flex-direction: column;
+}
+.l2-runs {
+  grid-area: L2;
+  display: flex;
+  flex-direction: column;
+}
+.notes {
+  grid-area: Notes;
+}
+
+/************************************** Header ***********************************/
+.kanban-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  /* column-gap: 3rem; */
+  padding: 0.25rem;
+  /* margin-bottom: 1rem; */
+  border-bottom: 1px solid #999;
+}
+
+.header-text {
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.main-nav {
+  justify-self: flex-end;
+  /* border-bottom: 1px solid #999; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.admin-link {
+  color: #333;
+  text-decoration: underline;
+  transition: ease 1s;
+}
+
+.admin-link:hover {
+  color: #333;
+  text-decoration: underline;
+  font-size: 1.05rem;
+  transition: ease 1s;
+}
+
+.gear-icon {
+  /* color: #333; */
+  /* color: red; */
+  display: none;
+  font-size: 1.25rem;
+  transition: rotate 1s;
+}
+
+.gear-icon:hover {
+  /* font-size: 1.5rem; */
+  transform: scale(1.25);
+  rotate: 45deg;
+  transition: rotate 1s;
+}
+
+.gear-icon > svg > path {
+  color: #333;
+}
+
+
+.banner-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/************************************** Tank Box ***********************************/
+
+.tank-box {
+  /* margin-bottom: 2rem; */
+  display: flex;
+  flex-direction: column;
+}
+
+/************************************** Tank Box Header***********************************/
+.tank-box header {
+  background: var(--brand-blue);
+  margin-bottom: 0;
+}
+
+.tank-box-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tank-num {
+  flex-grow: 1;
+  align-self: center;
+  text-align: center;
+  /* font-size: 4.2vw; */
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+/************************************** Tank Box Inside Container**************************/
+
+.tank-box-inside-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  /* border-bottom: 1px solid #171717; */
+  flex-grow: 1;
+  /* background: linear-gradient(transparent, rgba(255, 255, 159, 75%)); */
+}
+
+.left {
+  /* padding: 1rem 0.25rem 0.5rem 0.5rem; */
+  flex-grow: 1;
+  /* padding-left: 1rem;
+  padding-top: 1rem; */
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+/* .left > div > p */
+.flavor-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.flavorName {
+  font-size: 2rem;
+  margin-block-start: 0.5rem;
+}
+
+/* aboves p */
+p .flavor {
+  margin: 0;
+}
+/* .left img {
+  margin: .5rem;
+} */
+
+.right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 0.5rem;
+  /* justify-content: space-between; */
+  flex-grow: 2;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.top p {
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+}
+
+.notes-1,
+.notes-2,
+.note-3 {
+  /* padding: 0.25rem; */
+  margin: 0;
+  margin-top: 1rem;
+  /* font-size: 4.2vw; */
+  /* border: 0.5px solid var(--blue-gray); */
+  /* background-color: #deb887; */
+  background-color: rgba(252, 255, 83, 0.5);
+}
+
+.centered-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered {
+  /* margin-right: 1.1875rem; */
+}
+.centered p {
+  text-align: center;
+  margin: 0;
+  /* font-size: 4.5vw; */
+}
+
+.chilling-styles {
+  background-image: url(../Images/chilling-img.svg);
+  background-size: contain;
+  /* background-color: #0075c9;
+  color:#fff;
+  padding: .25em .5em .25em .5em;
+  border-radius: 5%; */
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* padding: 0 0.25rem 0 0.25rem; */
+}
+
+.bottom p {
+  margin: 0;
+  /* font-size: 4.2vw; */
+}
+/* .middle {
+  width: 33%;
+}
+
+.middle p {
+  margin: 0;
+  text-align: center;
+} */
+
+/* .right {
+  width: 66%;
+  display:flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  /* align-items: flex-end; }*/
+
+/* .right p {
+  margin: 0;
+}  */
+
+/************************************************ SEQUENCE RUNS BOX EXTRAS *****************************************/
+/************************************************ SEQUENCE RUN CONTAINER *****************************************/
+
+.sequence-header {
+  background: var(--brand-blue);
+  /* margin: 0 0 1rem 0; */
+}
+
+.line-run-heading {
+  text-align: center;
+  /* font-size: 4.2vw; */
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0;
+}
+
+.l1-runs-inner,
+.l2-runs-inner {
+  /* grid-column-start: span 3; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  flex-grow: 1;
+  margin-top: 0.5rem;
+  /* delete */
+}
+
+/* .sequence-header {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-self: flex-start;
+}
+
+.sequence-header p {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+} */
+
+/* ************************* 2nd. Shift & arrow box **************************************/
+
+.arrow-second {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.l1-second-shift p,
+.l2-second-shift p {
+  text-align: center;
+  padding: 0;
+  margin: 0px 0px 0.5rem 0px;
+}
+
+.l1-second-shift p,
+.l2-second-shift p {
+  padding: 0;
+  margin: 0px 0px 0.5rem 0px;
+}
+
+.arrow {
+  width: 50px;
+  padding-left: 1rem;
+  align-self: center;
+}
+
+/************************************************ SEQUENCE CARD *****************************************/
+
+.sequence-card-container {
+  /* border: 1px solid black; */
+  display: flex;
+  min-height: 115px;
+}
+.sequence-card {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* right box */
+.run-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.oz,
+.coupons,
+.canadian,
+.split,
+.run-note {
+  align-self: flex-end;
+  /* flex-basis: 10%; */
+  margin-right: 0.25rem;
+}
+
+.oz {
+  order: 2;
+}
+
+/* left box */
+.num-frag {
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+  padding-inline: 0.2rem;
+  /* background: linear-gradient(transparent, var(--blueberry-grad)); */
+}
+
+.sequence-card div p {
+  margin: 0;
+  text-align: center;
+}
+
+.sequence-card img {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.flavor-run-container {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.flavor-p {
+  flex-grow: 1;
+}
+
+/** Notes Section */
+.notes {
+  border: 1px solid var(--blue-gray);
+  /* margin-top: 0.5rem; */
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-header {
+  text-align: center;
+  font-size: 1.5rem;
+  order: 1;
+  margin-bottom: 0;
+  background-color: var(--brand-blue);
+  color: #fff;
+  /* padding-block: 0.25rem; */
+  /* padding-block: 0.09rem; */
+}
+
+.note-p-from-db {
+  order: 2;
+  /* flex-grow: 1; */
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.note-btn-container {
+  order: 3;
+  margin-block-start: auto;
+}
+
+.notes button {
+  margin: 1rem;
+  color: #fff;
+  background-color: var(--brand-blue);
+}
+
+.notes button:hover {
+  background-color: var(--ps-brand-pink);
+  color: #fff;
+}
+
+.uk-modal-dialog table {
+  margin: auto;
+}
+
+.uk-modal-dialog td {
+  text-align: center;
+}
+
+/**************************************************** MEDIA QUERY ***************************************/
+
+/* @media only screen and (min-width: 1000px) and (max-height: 850px) { */
+/*   .main-kanban-container { */
+/*     height: auto;  */
+/*     background-color: red; */
+/*   } */
+/*   } */
+/**/
+
+@media only screen and (min-width: 500px) {
+  .main-kanban-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:
+      repeat(1, auto) repeat(2, 1fr)
+      repeat(2, 0.6fr);
+    grid-template-areas:
+      "Header Header"
+      "T1 T2"
+      "T3 T4"
+      "T5 T6"
+      "L1 L1"
+      "L2 L2"
+      "Notes Notes";
+  }
+}
+
+/* tweak col & row px sizes old 476px*/
+@media only screen and (min-width: 1000px) {
+  .main-kanban-container {
+    height: 100vh;
+    /* border: 1px solid red; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:
+      repeat(1, auto) repeat(2, 1fr)
+      repeat(2, 0.6fr);
+    grid-template-areas:
+      "Header Header Header Header"
+      "T1 T2 T3 Notes"
+      "T4 T5 T6 Notes"
+      "L1 L1 L1 Notes"
+      "L2 L2 L2 Notes";
+  }
+
+  .tank-num {
+    text-align: center;
+    color: #fff;
+    margin: 0;
+  }
+
+  .top p {
+    /* font-size: 1.5vw; */
+  }
+
+  .centered p {
+    text-align: center;
+    margin: 0;
+    /* font-size: 2vw; */
+  }
+
+  .bottom p {
+    margin: 0;
+    /* font-size: 1.5vw; */
+  }
+
+  /* Line Sequence */
+  .sequence-header h6 {
+    /* font-size: 1.7vw; */
+  }
+
+  /* note section */
+  .notes {
+    /* font-size: 1.7vw; */
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .l1-runs-inner,
+  .l2-runs-inner {
+    flex-wrap: nowrap;
+    /* margin-bottom: 2rem; */
+    /* padding-bottom: 1.5rem; */
+    margin-bottom: 0;
+    overflow: scroll;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .gear-icon {
+    display: block;
+  }
+
+  .admin-link {
+    display: none;
+  }
+}

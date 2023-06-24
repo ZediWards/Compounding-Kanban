@@ -1,0 +1,329 @@
+:root {
+  --blue-gray: #64748b;
+  --blue-gray-alpha: rgba(100, 116, 139, 0.69);
+  --ps-brand-pink: #a3238e;
+  --ps-pink-btn: #a3238e;
+  --brand-blue: #022259;
+  --blue-btn: #0075c9;
+  /* Flavor Colors*/
+  --kiwi: #4fa531;
+  --citrus: #e5e919;
+  --blueberry: #3182a5;
+  --strawberry: #e93219;
+
+  /* Flavor colors alpha 69%*/
+  --kiwi-alpha: rgba(79, 165, 49, 0.69);
+  --citrus-alpha: rgba(229, 233, 25, 0.69);
+  --blueberry-alpha: rgba(49, 130, 165, 0.69);
+  --strawberry-alpha: rgba(233, 50, 25, 0.69);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #171717;
+}
+
+/* ****** header used in kanban screen as well ***** */
+
+.admin-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  /* column-gap: 3rem; */
+  padding: 0.25rem;
+  /* margin-bottom: 1rem; */
+  border-bottom: 1px solid #999;
+  padding-inline: 1rem;
+}
+
+.header-text {
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.main-nav {
+  justify-self: flex-end;
+  /* border-bottom: 1px solid #999; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.kanban-link {
+  color: #333;
+  text-decoration: underline;
+  transition: ease 1s;
+}
+
+.kanban-link:hover {
+  color: #333;
+  text-decoration: underline;
+  font-size: 1.05rem;
+  transition: ease 1s;
+}
+
+.house-icon {
+  display: none;
+  font-size: 1.25rem;
+  transition: rotate 1s;
+}
+
+.house-icon:hover {
+  transform: scale(1.25);
+  rotate: 5deg;
+  transition: rotate 1s;
+}
+
+.house-icon > svg > path {
+  color: #333;
+}
+
+/* ***************************** */
+
+li {
+  margin: 2rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.label-div {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 5px; */
+}
+
+.info-unicode {
+  font-size: 1.25rem;
+}
+
+/* .uk-tab-left li:active {
+  background-color: var(--ps-brand-pink);
+  margin: 1rem;
+} */
+
+/**************************************** FORMS ***********************************/
+
+/** Tank update form */
+div .single-form-container {
+  max-width: 900px;
+  border: 0.5px solid #999;
+  padding: 1rem;
+}
+div .admin-expand-limiter {
+  max-width: 1750px;
+}
+
+/* breaking stage radio options into 2 columns */
+.stage-2-col {
+  display: flex;
+  /* justify-content: space-around; */
+  column-gap: 2rem;
+}
+
+.notes-3-col {
+  display: flex;
+  /* justify-content: space-around; */
+  column-gap: 2rem;
+}
+
+.tank-update-btn {
+  margin-top: 1rem;
+}
+
+/*? Run Form Lists */
+
+/* Add enw and update all btn */
+.main-run-page-btn-container {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+/* .main-run-page-btn-container button:first-child {
+  margin-right: 2rem;
+} */
+.l1-run-forms,
+.l2-run-forms {
+  list-style: none;
+  padding: 0;
+}
+
+.l1-run-forms,
+.l2-run-forms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.l1-run-forms li,
+.l2-run-forms li {
+  border: 3px solid var(--blue-gray);
+  padding: 0.5rem;
+}
+
+/* blank fragrance border */
+li .blank-frag-border {
+  border-image: conic-gradient(
+      rgba(252, 251, 252, 1),
+      var(--blue-gray-alpha) 80%,
+      rgba(252, 251, 252, 1)
+    )
+    1;
+}
+
+/* Flavor borders */
+li .kiwi-flavor-border {
+  border-image: conic-gradient(
+      rgba(252, 251, 252, 1),
+      var(--kiwi-alpha) 80%,
+      rgba(252, 251, 252, 1)
+    )
+    1;
+}
+
+li .citrus-flavor-border {
+  border-image: conic-gradient(
+      rgba(252, 251, 252, 1),
+      var(--citrus-alpha) 80%,
+      rgba(252, 251, 252, 1)
+    )
+    1;
+}
+
+li .blueberry-flavor-border {
+  border-image: conic-gradient(
+      rgba(252, 251, 252, 1),
+      var(--blueberry-alpha) 80%,
+      rgba(252, 251, 252, 1)
+    )
+    1;
+}
+
+li .strawberry-flavor-border {
+  border-image: conic-gradient(
+      rgba(252, 251, 252, 1),
+      var(--strawberry-alpha) 80%,
+      rgba(252, 251, 252, 1)
+    )
+    1;
+}
+
+.l1-run-forms li form,
+.l2-run-forms li form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sequence-item {
+  display: flex;
+  margin: 0;
+}
+
+/* Batch size list */
+.batch-size-ordered-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 325px;
+  gap: 1.5rem;
+}
+
+input .batch-size-li {
+  margin: 0;
+  padding: 0;
+}
+
+li .batch-size-ol-list-item {
+  border: none;
+  max-width: 75px;
+  margin: 0;
+  padding: 0;
+}
+
+.batch-size-list-input-container {
+  display: flex;
+  column-gap: 0.75rem;
+  margin-bottom: 1rem;
+  /* gap: 1rem; */
+}
+
+.add-list-item-btn {
+  padding: 3px 6px 3px 6px;
+  border-radius: 30%;
+}
+
+.remove-list-item-btn {
+  padding: 3px 8px 3px 8px;
+  border-radius: 30%;
+}
+/* Extras */
+.extras-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  justify-content: space-around;
+  /* justify-content: space-around; */
+  /* column-gap: 2rem; */
+}
+
+.extras-checkbox {
+  margin-left: 0.25rem;
+}
+
+/* Buttons */
+.btns-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-grow: 1;
+  align-items: flex-end;
+}
+
+/* .run-update,
+.run-delete {
+  align-self: flex-end;
+} */
+/* .run-delete-btn {
+  margin-top: 1rem;
+}  */
+
+/** Notes */
+
+.kanban-notes-form {
+  max-width: 900px;
+}
+.kanban-notes-text-field {
+  height: 400px;
+}
+
+.notes-btns-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ********** Media Queries ***************/
+@media only screen and (max-width: 959px) {
+  .uk-tab li {
+    margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .house-icon {
+    display: block;
+  }
+
+  .kanban-link {
+    display: none;
+  }
+}
+

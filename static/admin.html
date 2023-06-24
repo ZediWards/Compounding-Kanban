@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.7/css/uikit.min.css"
+      integrity="sha512-J6C1FhNHlGkRsqXrmDprCi4TAe7S3QXXkClKopWHzeqhVTaFjxlSJoXDcfMVNWL79nf4Yqi7moHYP7bzGTF1gw=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/admin-main.css" />
+    <link rel="stylesheet" href="./css/tank-levels.css" />
+
+    <!-- local font awesome files-->
+    <script defer src="./FontAwesome/brands.js"></script>
+    <script defer src="./FontAwesome/regular.js"></script>
+    <script defer src="./FontAwesome/solid.js"></script>
+    <script defer src="./FontAwesome/fontawesome.js"></script>
+
+    <title>Admin Panel</title>
+  </head>
+  <body>
+    <!-- <form action="">
+    <ul id="target">  
+    </ul> -->
+    <header class="admin-header">
+      <h1 class="header-text">Admin Panel</h1>
+      <nav class="main-nav">
+        <a class="kanban-link" href="./">Kanban</a>
+        <a class="house-icon" href="./"
+            ><i class="fa-solid fa-house-chimney"></i
+          ></a>
+      </nav>
+    </header>
+
+    <div class="uk-child-width-1-1@s" uk-grid>
+      <div>
+        <div uk-grid>
+          <div class="uk-width-auto@m">
+            <ul
+              class="uk-tab-left"
+              uk-tab="connect: #component-tab-left; animation: uk-animation-fade"
+            >
+              <li><a id="Tank-1-get" href="#">Tank 1</a></li>
+              <li><a id="Tank-2-get" href="#">Tank 2</a></li>
+              <li><a id="Tank-3-get" href="#">Tank 3</a></li>
+              <li><a id="Tank-4-get" href="#">Tank 4</a></li>
+              <li><a id="Tank-5-get" href="#">Tank 5</a></li>
+              <li><a id="Tank-6-get" href="#">Tank 6</a></li>
+              <li><a id="Line1-get-and-list" href="#">Line 1 Runs</a></li>
+              <li><a id="Line2-get-and-list" href="#">Line 2 Runs</a></li>
+              <li><a id="note-get-and-list" href="#">Notes</a></li>
+            </ul>
+          </div>
+          <div class="uk-width-expand@m admin-expand-limiter">
+            <ul id="component-tab-left" class="uk-switcher">
+              <!-- Tank 1-  -->
+              <li>
+                <!-- Form Start -->
+                <div class="single-form-container tank-1-form">
+                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                  <form class="uk-form-stacked form-tank-1">
+                    <!-- Product Type Dropdown -->
+                    <div class="uk-margin">
+                      <div class="label-div">
+                        <label for="product-type"><h4>Product Type</h4> </label>
+                      </div>
+
+                      <div class="uk-form-controls">
+                        <select
+                          class="uk-select product-type prod-type"
+                          id="tank1-fragrance product-type"
+                        >
+                          <option></option>
+                          <optgroup label="Flavors">
+                            <option>Kiwi</option>
+                            <option>Citrus</option>
+                            <option>Blueberry</option>
+                            <option>Strawberry</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Sequence Text-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="sequence"
+                        ><h4>Sequence</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input seq-val"
+                          id="sequence"
+                          name="sequence"
+                          type="text"
+                          maxlength="20"
+                          placeholder="ex. 1/3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Stage Radios-->
+                    <div class="uk-margin">
+                      <div class="uk-form-label"><h4>Stage</h4></div>
+
+                      <div class="uk-form-controls stage-2-col">
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="batching"
+                              name="stage"
+                              value="Batching"
+                            />
+                            Batching
+                          </label>
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="dwelling"
+                              name="stage"
+                              value="Dwelling"
+                            />
+                            Dwelling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="chilling"
+                              name="stage"
+                              value="Chilling"
+                            />
+                            Chilling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="recirculating"
+                              name="stage"
+                              value="Recirculating"
+                            />
+                            Recirculating</label
+                          >
+                        </div>
+
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="production 1"
+                              name="stage"
+                              value="Production 1"
+                            />
+                            Production 1</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="production 2"
+                              name="stage"
+                              value="Production 2"
+                            />
+                            Production 2</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="cleaned"
+                              name="stage"
+                              value="Cleaned"
+                            />
+                            Cleaned</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank1-stage-val"
+                              type="radio"
+                              id="rinsed"
+                              name="stage"
+                              value="Rinsed"
+                            />
+                            Rinsed</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="uk-margin">
+                      <div class="uk-form-controls notes-3-col">
+                        <!-- Note-1 -->
+                        <div>
+                          <label class="uk-form-label" for="note-1"
+                            ><h6>Note 1</h6></label
+                          >
+                          <input
+                            class="uk-input note-1-val"
+                            type="text"
+                            id="note-1"
+                            name="note-1"
+                            maxlength="20"
+                          />
+                        </div>
+                        <!-- Note 2 -->
+                        <div>
+                          <label class="uk-form-label" for="note-2"
+                            ><h6>Note 2</h6></label
+                          >
+                          <input
+                            class="uk-input note-2-val"
+                            type="text"
+                            id="note-2"
+                            name="note-2"
+                            maxlength="20"
+                          />
+                        </div>
+
+                        <div>
+                          <label class="uk-form-label" for="note-3"
+                            ><h6>Note 3?</h6></label
+                          >
+                          <input
+                            class="uk-input note-3-val"
+                            type="text"
+                            id="note-3"
+                            name="note-3"
+                            maxlength="20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Volume Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="volume"
+                        ><h4>Gallons</h4></label
+                      >
+
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input vol-val"
+                          type="number"
+                          id="volume"
+                          name="volume"
+                        />
+                      </div>
+                    </div>
+                    <!-- Cans Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="cans"
+                        ><h4>Cans</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input can-val"
+                          type="number"
+                          id="cans"
+                          name="cans"
+                        />
+                      </div>
+                    </div>
+                    <!-- Update Button -->
+                    <!-- !!!!!!!!!!!!!1 -->
+                    <button
+                      class="uk-button uk-width-1-1 uk-button-primary tank-1-update-btn"
+                      type="submit"
+                      disabled="true"
+                    >
+                      Update
+                    </button>
+                    <!-- Form End -->
+                  </form>
+                </div>
+              </li>
+              <!-- Tank 2-  -->
+              <li>
+                <!-- Form Start -->
+                <div class="single-form-container tank-2-form">
+                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                  <form class="uk-form-stacked form-tank-2">
+                    <!-- Product Type Dropdown -->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="product-type"
+                        ><h4>Product Type</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <select
+                          class="uk-select product-type prod-type"
+                          id="uuid-fragrance product-type"
+                        >
+                          <option></option>
+                          <optgroup label="Flavors">
+                            <option>Kiwi</option>
+                            <option>Citrus</option>
+                            <option>Blueberry</option>
+                            <option>Strawberry</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Sequence Text-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="sequence"
+                        ><h4>Sequence</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input seq-val"
+                          id="sequence"
+                          name="sequence"
+                          type="text"
+                          maxlength="20"
+                          placeholder="ex. 1/3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Stage Radios-->
+                    <div class="uk-margin">
+                      <div class="uk-form-label"><h4>Stage</h4></div>
+
+                      <div class="uk-form-controls stage-2-col">
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="batching"
+                              name="stage"
+                              value="Batching"
+                            />
+                            Batching
+                          </label>
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="dwelling"
+                              name="stage"
+                              value="Dwelling"
+                            />
+                            Dwelling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="chilling"
+                              name="stage"
+                              value="Chilling"
+                            />
+                            Chilling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="recirculating"
+                              name="stage"
+                              value="Recirculating"
+                            />
+                            Recirculating</label
+                          >
+                        </div>
+
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="production 1"
+                              name="stage"
+                              value="Production 1"
+                            />
+                            Production 1</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="production 2"
+                              name="stage"
+                              value="Production 2"
+                            />
+                            Production 2</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="cleaned"
+                              name="stage"
+                              value="Cleaned"
+                            />
+                            Cleaned</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank2-stage-val"
+                              type="radio"
+                              id="rinsed"
+                              name="stage"
+                              value="Rinsed"
+                            />
+                            Rinsed</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="uk-margin">
+                      <div class="uk-form-controls notes-3-col">
+                        <!-- Note-1 -->
+                        <div>
+                          <label class="uk-form-label" for="note-1"
+                            ><h6>Note 1</h6></label
+                          >
+                          <input
+                            class="uk-input note-1-val"
+                            type="text"
+                            id="note-1"
+                            name="note-1"
+                            maxlength="20"
+                          />
+                        </div>
+                        <!-- Note 2 -->
+                        <div>
+                          <label class="uk-form-label" for="note-2"
+                            ><h6>Note 2</h6></label
+                          >
+                          <input
+                            class="uk-input note-2-val"
+                            type="text"
+                            id="note-2"
+                            name="note-2"
+                            maxlength="20"
+                          />
+                        </div>
+
+                        <div>
+                          <label class="uk-form-label" for="note-3"
+                            ><h6>Note 3?</h6></label
+                          >
+                          <input
+                            class="uk-input note-3-val"
+                            type="text"
+                            id="note-3"
+                            name="note-3"
+                            maxlength="20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Volume Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="volume"
+                        ><h4>Gallons</h4></label
+                      >
+
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input vol-val"
+                          type="number"
+                          id="volume"
+                          name="volume"
+                        />
+                      </div>
+                    </div>
+                    <!-- Cans Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="cans"
+                        ><h4>Cans</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input can-val"
+                          type="number"
+                          id="cans"
+                          name="cans"
+                        />
+                      </div>
+                    </div>
+                    <!-- Update Button -->
+                    <!-- !!!!!!!!!!!!!1 -->
+                    <button
+                      class="uk-button uk-width-1-1 uk-button-primary tank-2-update-btn"
+                      type="submit"
+                      disabled="true"
+                    >
+                      Update
+                    </button>
+                    <!-- Form End -->
+                  </form>
+                </div>
+              </li>
+              <!-- Tank 3-  -->
+              <li>
+                <!-- Form Start -->
+                <div class="single-form-container tank-3-form">
+                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                  <form class="uk-form-stacked form-tank-3">
+                    <!-- Product Type Dropdown -->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="product-type"
+                        ><h4>Product Type</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <select
+                          class="uk-select product-type prod-type"
+                          id="uuid-fragrance product-type"
+                        >
+                          <option></option>
+                          <optgroup label="Flavors">
+                            <option>Kiwi</option>
+                            <option>Citrus</option>
+                            <option>Blueberry</option>
+                            <option>Strawberry</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Sequence Text-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="sequence"
+                        ><h4>Sequence</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input seq-val"
+                          id="sequence"
+                          name="sequence"
+                          type="text"
+                          maxlength="20"
+                          placeholder="ex. 1/3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Stage Radios-->
+                    <div class="uk-margin">
+                      <div class="uk-form-label"><h4>Stage</h4></div>
+
+                      <div class="uk-form-controls stage-2-col">
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="batching"
+                              name="stage"
+                              value="Batching"
+                            />
+                            Batching
+                          </label>
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="dwelling"
+                              name="stage"
+                              value="Dwelling"
+                            />
+                            Dwelling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="chilling"
+                              name="stage"
+                              value="Chilling"
+                            />
+                            Chilling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="recirculating"
+                              name="stage"
+                              value="Recirculating"
+                            />
+                            Recirculating</label
+                          >
+                        </div>
+
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="production 1"
+                              name="stage"
+                              value="Production 1"
+                            />
+                            Production 1</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="production 2"
+                              name="stage"
+                              value="Production 2"
+                            />
+                            Production 2</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="cleaned"
+                              name="stage"
+                              value="Cleaned"
+                            />
+                            Cleaned</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank3-stage-val"
+                              type="radio"
+                              id="rinsed"
+                              name="stage"
+                              value="Rinsed"
+                            />
+                            Rinsed</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="uk-margin">
+                      <div class="uk-form-controls notes-3-col">
+                        <!-- Note-1 -->
+                        <div>
+                          <label class="uk-form-label" for="note-1"
+                            ><h6>Note 1</h6></label
+                          >
+                          <input
+                            class="uk-input note-1-val"
+                            type="text"
+                            id="note-1"
+                            name="note-1"
+                            maxlength="20"
+                          />
+                        </div>
+                        <!-- Note 2 -->
+                        <div>
+                          <label class="uk-form-label" for="note-2"
+                            ><h6>Note 2</h6></label
+                          >
+                          <input
+                            class="uk-input note-2-val"
+                            type="text"
+                            id="note-2"
+                            name="note-2"
+                            maxlength="20"
+                          />
+                        </div>
+
+                        <div>
+                          <label class="uk-form-label" for="note-3"
+                            ><h6>Note 3?</h6></label
+                          >
+                          <input
+                            class="uk-input note-3-val"
+                            type="text"
+                            id="note-3"
+                            name="note-3"
+                            maxlength="20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Volume Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="volume"
+                        ><h4>Gallons</h4></label
+                      >
+
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input vol-val"
+                          type="number"
+                          id="volume"
+                          name="volume"
+                        />
+                      </div>
+                    </div>
+                    <!-- Cans Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="cans"
+                        ><h4>Cans</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input can-val"
+                          type="number"
+                          id="cans"
+                          name="cans"
+                        />
+                      </div>
+                    </div>
+                    <!-- Update Button -->
+                    <!-- !!!!!!!!!!!!!1 -->
+                    <button
+                      class="uk-button uk-width-1-1 uk-button-primary tank-3-update-btn"
+                      type="submit"
+                      disabled="true"
+                    >
+                      Update
+                    </button>
+                    <!-- Form End -->
+                  </form>
+                </div>
+              </li>
+              <!-- Tank 4-  -->
+              <li>
+                <!-- Form Start -->
+                <div class="single-form-container tank-4-form">
+                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                  <form class="uk-form-stacked form-tank-4">
+                    <!-- Product Type Dropdown -->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="product-type"
+                        ><h4>Product Type</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <select
+                          class="uk-select product-type prod-type"
+                          id="uuid-fragrance product-type"
+                        >
+                          <option></option>
+                          <optgroup label="Flavors">
+                            <option>Kiwi</option>
+                            <option>Citrus</option>
+                            <option>Blueberry</option>
+                            <option>Strawberry</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Sequence Text-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="sequence"
+                        ><h4>Sequence</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input seq-val"
+                          id="sequence"
+                          name="sequence"
+                          type="text"
+                          maxlength="20"
+                          placeholder="ex. 1/3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Stage Radios-->
+                    <div class="uk-margin">
+                      <div class="uk-form-label"><h4>Stage</h4></div>
+
+                      <div class="uk-form-controls stage-2-col">
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="batching"
+                              name="stage"
+                              value="Batching"
+                            />
+                            Batching
+                          </label>
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="dwelling"
+                              name="stage"
+                              value="Dwelling"
+                            />
+                            Dwelling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="chilling"
+                              name="stage"
+                              value="Chilling"
+                            />
+                            Chilling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="recirculating"
+                              name="stage"
+                              value="Recirculating"
+                            />
+                            Recirculating</label
+                          >
+                        </div>
+
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="production 1"
+                              name="stage"
+                              value="Production 1"
+                            />
+                            Production 1</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="production 2"
+                              name="stage"
+                              value="Production 2"
+                            />
+                            Production 2</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="cleaned"
+                              name="stage"
+                              value="Cleaned"
+                            />
+                            Cleaned</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank4-stage-val"
+                              type="radio"
+                              id="rinsed"
+                              name="stage"
+                              value="Rinsed"
+                            />
+                            Rinsed</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="uk-margin">
+                      <div class="uk-form-controls notes-3-col">
+                        <!-- Note-1 -->
+                        <div>
+                          <label class="uk-form-label" for="note-1"
+                            ><h6>Note 1</h6></label
+                          >
+                          <input
+                            class="uk-input note-1-val"
+                            type="text"
+                            id="note-1"
+                            name="note-1"
+                            maxlength="20"
+                          />
+                        </div>
+                        <!-- Note 2 -->
+                        <div>
+                          <label class="uk-form-label" for="note-2"
+                            ><h6>Note 2</h6></label
+                          >
+                          <input
+                            class="uk-input note-2-val"
+                            type="text"
+                            id="note-2"
+                            name="note-2"
+                            maxlength="20"
+                          />
+                        </div>
+
+                        <div>
+                          <label class="uk-form-label" for="note-3"
+                            ><h6>Note 3?</h6></label
+                          >
+                          <input
+                            class="uk-input note-3-val"
+                            type="text"
+                            id="note-3"
+                            name="note-3"
+                            maxlength="20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Volume Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="volume"
+                        ><h4>Gallons</h4></label
+                      >
+
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input vol-val"
+                          type="number"
+                          id="volume"
+                          name="volume"
+                        />
+                      </div>
+                    </div>
+                    <!-- Cans Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="cans"
+                        ><h4>Cans</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input can-val"
+                          type="number"
+                          id="cans"
+                          name="cans"
+                        />
+                      </div>
+                    </div>
+                    <!-- Update Button -->
+                    <!-- !!!!!!!!!!!!!1 -->
+                    <button
+                      class="uk-button uk-width-1-1 uk-button-primary tank-4-update-btn"
+                      type="submit"
+                      disabled="true"
+                    >
+                      Update
+                    </button>
+                    <!-- Form End -->
+                  </form>
+                </div>
+              </li>
+              <!-- Tank 5-  -->
+              <li>
+                <!-- Form Start -->
+                <div class="single-form-container tank-5-form">
+                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                  <form class="uk-form-stacked form-tank-5">
+                    <!-- Product Type Dropdown -->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="product-type"
+                        ><h4>Product Type</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <select
+                          class="uk-select product-type prod-type"
+                          id="uuid-fragrance product-type"
+                        >
+                          <option></option>
+                          <optgroup label="Flavors">
+                            <option>Kiwi</option>
+                            <option>Citrus</option>
+                            <option>Blueberry</option>
+                            <option>Strawberry</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Sequence Text-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="sequence"
+                        ><h4>Sequence</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input seq-val"
+                          id="sequence"
+                          name="sequence"
+                          type="text"
+                          maxlength="20"
+                          placeholder="ex. 1/3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Stage Radios-->
+                    <div class="uk-margin">
+                      <div class="uk-form-label"><h4>Stage</h4></div>
+
+                      <div class="uk-form-controls stage-2-col">
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="batching"
+                              name="stage"
+                              value="Batching"
+                            />
+                            Batching
+                          </label>
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="dwelling"
+                              name="stage"
+                              value="Dwelling"
+                            />
+                            Dwelling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="chilling"
+                              name="stage"
+                              value="Chilling"
+                            />
+                            Chilling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="recirculating"
+                              name="stage"
+                              value="Recirculating"
+                            />
+                            Recirculating</label
+                          >
+                        </div>
+
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="production 1"
+                              name="stage"
+                              value="Production 1"
+                            />
+                            Production 1</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="production 2"
+                              name="stage"
+                              value="Production 2"
+                            />
+                            Production 2</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="cleaned"
+                              name="stage"
+                              value="Cleaned"
+                            />
+                            Cleaned</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank5-stage-val"
+                              type="radio"
+                              id="rinsed"
+                              name="stage"
+                              value="Rinsed"
+                            />
+                            Rinsed</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="uk-margin">
+                      <div class="uk-form-controls notes-3-col">
+                        <!-- Note-1 -->
+                        <div>
+                          <label class="uk-form-label" for="note-1"
+                            ><h6>Note 1</h6></label
+                          >
+                          <input
+                            class="uk-input note-1-val"
+                            type="text"
+                            id="note-1"
+                            name="note-1"
+                            maxlength="20"
+                          />
+                        </div>
+                        <!-- Note 2 -->
+                        <div>
+                          <label class="uk-form-label" for="note-2"
+                            ><h6>Note 2</h6></label
+                          >
+                          <input
+                            class="uk-input note-2-val"
+                            type="text"
+                            id="note-2"
+                            name="note-2"
+                            maxlength="20"
+                          />
+                        </div>
+
+                        <div>
+                          <label class="uk-form-label" for="note-3"
+                            ><h6>Note 3?</h6></label
+                          >
+                          <input
+                            class="uk-input note-3-val"
+                            type="text"
+                            id="note-3"
+                            name="note-3"
+                            maxlength="20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Volume Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="volume"
+                        ><h4>Gallons</h4></label
+                      >
+
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input vol-val"
+                          type="number"
+                          id="volume"
+                          name="volume"
+                        />
+                      </div>
+                    </div>
+                    <!-- Cans Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="cans"
+                        ><h4>Cans</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input can-val"
+                          type="number"
+                          id="cans"
+                          name="cans"
+                        />
+                      </div>
+                    </div>
+                    <!-- Update Button -->
+                    <!-- !!!!!!!!!!!!!1 -->
+                    <button
+                      class="uk-button uk-width-1-1 uk-button-primary tank-5-update-btn"
+                      type="submit"
+                      disabled="true"
+                    >
+                      Update
+                    </button>
+                    <!-- Form End -->
+                  </form>
+                </div>
+              </li>
+              <!-- Tank 6-  -->
+              <li>
+                <!-- Form Start -->
+                <div class="single-form-container tank-6-form">
+                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                  <form class="uk-form-stacked form-tank-6">
+                    <!-- Product Type Dropdown -->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="product-type"
+                        ><h4>Product Type</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <select
+                          class="uk-select product-type prod-type"
+                          id="uuid-fragrance product-type"
+                        >
+                          <option></option>
+                          <optgroup label="Flavors">
+                            <option>Kiwi</option>
+                            <option>Citrus</option>
+                            <option>Blueberry</option>
+                            <option>Strawberry</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Sequence Text-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="sequence"
+                        ><h4>Sequence</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input seq-val"
+                          id="sequence"
+                          name="sequence"
+                          type="text"
+                          maxlength="20"
+                          placeholder="ex. 1/3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Stage Radios-->
+                    <div class="uk-margin">
+                      <div class="uk-form-label"><h4>Stage</h4></div>
+
+                      <div class="uk-form-controls stage-2-col">
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="batching"
+                              name="stage"
+                              value="Batching"
+                            />
+                            Batching
+                          </label>
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="dwelling"
+                              name="stage"
+                              value="Dwelling"
+                            />
+                            Dwelling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="chilling"
+                              name="stage"
+                              value="Chilling"
+                            />
+                            Chilling</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="recirculating"
+                              name="stage"
+                              value="Recirculating"
+                            />
+                            Recirculating</label
+                          >
+                        </div>
+
+                        <div>
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="production 1"
+                              name="stage"
+                              value="Production 1"
+                            />
+                            Production 1</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="production 2"
+                              name="stage"
+                              value="Production 2"
+                            />
+                            Production 2</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="cleaned"
+                              name="stage"
+                              value="Cleaned"
+                            />
+                            Cleaned</label
+                          >
+                          <br />
+                          <label
+                            ><input
+                              class="uk-radio tank6-stage-val"
+                              type="radio"
+                              id="rinsed"
+                              name="stage"
+                              value="Rinsed"
+                            />
+                            Rinsed</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="uk-margin">
+                      <div class="uk-form-controls notes-3-col">
+                        <!-- Note-1 -->
+                        <div>
+                          <label class="uk-form-label" for="note-1"
+                            ><h6>Note 1</h6></label
+                          >
+                          <input
+                            class="uk-input note-1-val"
+                            type="text"
+                            id="note-1"
+                            name="note-1"
+                            maxlength="20"
+                          />
+                        </div>
+                        <!-- Note 2 -->
+                        <div>
+                          <label class="uk-form-label" for="note-2"
+                            ><h6>Note 2</h6></label
+                          >
+                          <input
+                            class="uk-input note-2-val"
+                            type="text"
+                            id="note-2"
+                            name="note-2"
+                            maxlength="20"
+                          />
+                        </div>
+
+                        <div>
+                          <label class="uk-form-label" for="note-3"
+                            ><h6>Note 3?</h6></label
+                          >
+                          <input
+                            class="uk-input note-3-val"
+                            type="text"
+                            id="note-3"
+                            name="note-3"
+                            maxlength="20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Volume Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="volume"
+                        ><h4>Gallons</h4></label
+                      >
+
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input vol-val"
+                          type="number"
+                          id="volume"
+                          name="volume"
+                        />
+                      </div>
+                    </div>
+                    <!-- Cans Number-->
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="cans"
+                        ><h4>Cans</h4></label
+                      >
+                      <div class="uk-form-controls">
+                        <input
+                          class="uk-input can-val"
+                          type="number"
+                          id="cans"
+                          name="cans"
+                        />
+                      </div>
+                    </div>
+                    <!-- Update Button -->
+                    <!-- !!!!!!!!!!!!!1 -->
+                    <button
+                      class="uk-button uk-width-1-1 uk-button-primary tank-6-update-btn"
+                      type="submit"
+                      disabled="true"
+                    >
+                      Update
+                    </button>
+                    <!-- Form End -->
+                  </form>
+                </div>
+              </li>
+              <!-- Line 1 Run List -->
+              <li>
+                <!-- Add New Button -->
+                <div class="uk-margin main-run-page-btn-container">
+                  <!-- Add New Button -->
+                  <button
+                    class="uk-button uk-button-secondary"
+                    id="add-new-run-1"
+                  >
+                    Add New
+                  </button>
+
+                  <!-- Update All Button -->
+                  <!-- <button
+                    class="uk-button uk-button-secondary"
+                    id="update-all-run"
+                  >
+                    Update All
+                  </button> -->
+
+                  <!-- 2nd. Shift radio and text input  -->
+                  <div>
+                    <label for="2nd-shift-date-line1">
+                      <!-- <input
+                        class="uk-radio"
+                        type="radio"
+                        id="Line1-schedule"
+                        name="2nd-shift"
+                      /> -->
+                      Line Sequence Note
+                    </label>
+                    <input
+                      type="text"
+                      id="2nd-shift-date-line1"
+                      name="Line1-2nd-shift-date"
+                      maxlength="20"
+                    />
+                    <button
+                      class="uk-button uk-button-small uk-button-primary"
+                      id="Line-1-2nd-shift-save"
+                      disabled
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+
+                <ul class="l1-run-forms">
+                  <!-- Dynamically created with javascript with addNewRunForm(e) -->
+                </ul>
+              </li>
+
+              <!-- Line 2 Run List -->
+              <li>
+                <!-- Add New Button -->
+                <div class="uk-margin main-run-page-btn-container">
+                  <!-- Add New Button -->
+                  <button
+                    class="uk-button uk-button-secondary"
+                    id="add-new-run-2"
+                  >
+                    Add New
+                  </button>
+
+                  <!-- Update All Button -->
+                  <!-- <button
+                    class="uk-button uk-button-secondary"
+                    id="update-all-run"
+                  >
+                    Update All
+                  </button> -->
+
+                  <div>
+                    <!-- 2nd. Shift radio and text input  -->
+                    <label for="2nd-shift-date-line2">
+                      <!-- <input
+                        class="uk-radio"
+                        type="radio"
+                        id="Line2-schedule"
+                        name="2nd-shift"
+                      /> -->
+                      Line Sequence Note
+                    </label>
+
+                    <input
+                      type="text"
+                      id="2nd-shift-date-line2"
+                      name="Line2-2nd-shift-date"
+                      maxlength="20"
+                    />
+                    <button
+                      class="uk-button uk-button-small uk-button-primary"
+                      id="Line-2-2nd-shift-save"
+                      disabled
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+
+                <ul class="l2-run-forms">
+                  <!-- Dynamically created with javascript with addNewRunForm(e) -->
+                </ul>
+              </li>
+              <li>
+                <!-- Notes -->
+                <form class="kanban-notes-form">
+                  <label class="uk-form-label" for="kanban-notes"
+                    ><h4>Notes for Kanban Board</h4></label
+                  >
+                  <textarea
+                    class="uk-textarea uk-form-large note-to-db kanban-notes-text-field"
+                    id="kanban-notes"
+                    maxlength="200"
+                    wrap="hard"
+                  >
+                  </textarea>
+                  <div class="notes-btns-container">
+                    <button
+                      class="uk-button uk-button-primary uk-width-1-1 kanban-note-update"
+                      type="submit"
+                      disabled=""
+                    >
+                      Update
+                    </button>
+                    <!-- <button
+                      class="uk-button uk-button-danger uk-width-1-2 kanban-note-delete"
+                      type="submit"
+                    >
+                      Delete
+                    </button> -->
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <button class="form-handle">Submit</button> -->
+    <!-- </form> -->
+
+    <script type="module" src="./js/admin.js"></script>
+    <script type="module" src="./js/submitForm.js"></script>
+    <script
+      type="module"
+      src="js/modules/admin/secondShift/secondShift.js"
+    ></script>
+    <!-- <script src="./js/tank-levels.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.7/js/uikit.min.js"
+      integrity="sha512-8qiRasoFXMiNj3lzriKW6BKSPpSgUvv+5spP1TkNs2yf2WY9B263HSkMcCq4Ym2H9VpzzqhcJUvjBjKkzMCFyw=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.7/js/uikit-icons.min.js"
+      integrity="sha512-yBrRMXt+csYXtowumQsVoq3TZiwYGDBIRPCLnGm4Cuu0ly2ow3Q2KAepozpy6mdewpkZl/NcbqBKb8789cCygg=="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
