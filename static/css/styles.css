@@ -138,12 +138,12 @@ svg {
 }
 
 .prop-number {
-    font-size: 0.65rem;
+    /* font-size: 0.65rem; */
     fill: #171717;
   }
 
   .last-updated {
-    font-size: 0.65rem;
+    /* font-size: 0.65rem; */
     fill: #171717;
   }
 
@@ -355,11 +355,11 @@ svg {
   }
   /* box being 0 0 250 190 */
   .prop-number {
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
   }
 
   .last-updated {
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
   }
 
   #tank1-last-updated {
