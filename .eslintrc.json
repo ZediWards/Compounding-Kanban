@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {}
+}
+// (Remember, "rules" always “wins” over "extends"!)
+//   https://eslint.org/docs/latest/rules *all rules marked "recommended is turned on by "eslint:recommended"
+// eslint-config-prettier is npm installed to turn off all rules that conflict with prettier

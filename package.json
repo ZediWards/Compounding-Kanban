@@ -1,0 +1,24 @@
+{
+  "name": "v1-kanban",
+  "version": "1.0.0",
+  "description": "Kanban for Compounding Department in a Manufacturing Facility. ",
+  "main": "./static/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZediWards/Compounding-Kanban.git"
+  },
+  "author": "Zediwards",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZediWards/Compounding-Kanban/issues"
+  },
+  "homepage": "https://github.com/ZediWards/Compounding-Kanban#readme",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react": "^7.32.2"
+  }
+}
