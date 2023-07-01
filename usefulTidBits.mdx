@@ -1,0 +1,155 @@
+## CSS files
+
+</br>
+
+Big take aways:
+
+- dealing with overflow
+  <!-- todo example -->
+  - gotcha: fixed pixels on a element who's parent is flex or fr unit
+- Difference between :root & \* and how they stack up to style library linked cdn
+
+---
+
+### Main.css
+
+Global settings
+
+- color variables, box-sizing, image max-width
+
+```css
+:root {
+  --citrus-grad: rgba(255, 255, 159, 75%);
+  --strawberry-grad: rgba(196, 62, 74, 75%);
+  --kiwi-grad: rgba(122, 150, 15, 75%);
+  --blueberry-grad: rgba(79, 134, 247, 75%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #171717;
+}
+
+img {
+  max-width: 100%;
+}
+```
+
+</br>
+
+Tank gradient / images
+
+- Used gradient and background-image that matched the flavor in the tank
+- To be able to transform: rotate the PNG image without rotating the gradient as well, I applied the PNG to the pseudo ::before for that class
+- Used JavaScript switch statement to apply correct class to element
+<!-- todo what was the z-index issue I had to fix -->
+
+```css
+.citrus-gradient {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(transparent, var(--citrus-grad));
+}
+
+.citrus-gradient::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: 1;
+  background: url("../Images/lemon.png") 0 0 repeat;
+  transform: rotate(10deg);
+  background-size: 8%;
+  opacity: 4%;
+}
+```
+
+</br>
+
+Kanban Grid Container
+
+- Mobile first using minmax(px, fr)
+- Used grid-template-areas
+
+</br>
+*********************************************************************
+
+### Admin-main.css
+
+Global settings
+
+- pretty much just color variables in :root and simple settings under \*
+
+```css
+:root{
+  <!-- color variables -->
+  --kiwi: #4fa531;
+  --citrus: #e5e919;
+  --blueberry: #3182a5;
+  --strawberry: #e93219;
+
+  /* ...and all other colors I used */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #171717;
+}
+```
+
+</br>
+
+Icons
+
+- I used font-awesome local free svg icon files
+- Slight transforms on hover and changing the color
+- The display is changed to block at a media query
+<!-- todo is js involved in the icon display? -->
+
+```css
+.house-icon {
+  display: none;
+  font-size: 1.25rem;
+  transition: rotate 1s;
+}
+
+.house-icon:hover {
+  transform: scale(1.25);
+  rotate: 5deg;
+  transition: rotate 1s;
+}
+
+.house-icon > svg > path {
+  color: #333;
+}
+
+@media only screen and (max-width: 500px) {
+  .house-icon {
+    display: block;
+  }
+}
+```
+
+</br>
+
+Border gradients to match flavor selected
+
+- Made out all the borders as seperate classes then used JavaScript switch statement to add/remove classes with a change event listener
+
+```css
+li .blueberry-flavor-border {
+  border-image: conic-gradient(
+      rgba(252, 251, 252, 1),
+      var(--blueberry-alpha) 80%,
+      rgba(252, 251, 252, 1)
+    ) 1;
+}
+```
+
+</br>
