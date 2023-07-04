@@ -8,6 +8,8 @@ Big take aways:
   <!-- todo example -->
   - gotcha: fixed pixels on a element who's parent is flex or fr unit
 - Difference between :root & \* and how they stack up to style library linked cdn
+- need to use CSS variables for color so there aren't strays in cod base
+- used flex-grow: 1 a good bit to get different elements to take up more space than the others
 
 ---
 
@@ -72,11 +74,110 @@ Tank gradient / images
 
 Kanban Grid Container
 
-- Mobile first using minmax(px, fr)
+- Mobile first using minmax(px, fr) for column and rows
 - Used grid-template-areas
+- dividing the screen up to fill with content
+
+```css
+.main-kanban-container {
+  max-width: 100%;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
+  grid-template-rows:
+    repeat(1, auto) repeat(6, minmax(100px, 1fr))
+    repeat(2, minmax(100px, 0.6fr)) repeat(1, minmax(100px, auto));
+  gap: 0.5rem 30px;
+  margin: auto;
+  padding-inline: 1rem;
+  border: 1px solid var(--blue-gray);
+  grid-template-areas:
+    "Header"
+    "T1"
+    "T2"
+    "T3"
+    "T4"
+    "T5"
+    "T6"
+    "L1"
+    "L2"
+    "Notes";
+}
+```
 
 </br>
-*********************************************************************
+
+Header and Nav
+
+- nav link font-size increase transition upon hover
+- link gets swapped out for gear ican via media query
+- gear rotates on hover
+- changed color font awesome svg
+<!-- todo stop link expanding also making header move.  -->
+
+```css
+.admin-link {
+  color: #333;
+  text-decoration: underline;
+  transition: ease 1s;
+}
+
+.admin-link:hover {
+  color: #333;
+  text-decoration: underline;
+  font-size: 1.05rem;
+  transition: ease 1s;
+}
+
+.gear-icon {
+  /* color: #333; */
+  /* color: red; */
+  display: none;
+  font-size: 1.25rem;
+  transition: rotate 1s;
+}
+
+.gear-icon:hover {
+  /* font-size: 1.5rem; */
+  transform: scale(1.25);
+  rotate: 45deg;
+  transition: rotate 1s;
+}
+
+.gear-icon > svg > path {
+  color: #333;
+}
+```
+
+</br>
+
+Tank box (grid item)
+
+- flex column
+
+  - fills the grid when content isn't enough to
+  - applied a class with JavaScript if the tank was "chilling"
+  - different flex-grows for different elements
+
+  ```css
+  .chilling-styles {
+    background-image: url(../Images/chilling-img.svg);
+    background-size: contain;
+  }
+  ```
+
+  </br>
+
+Sequence Run
+
+<!-- todo: does the container need to be flex if its child is also flex? -->
+
+- made it nowrap and let it overflow: scroll for screens under 1000px
+
+</br>
+</br>
+
+---
 
 ### Admin-main.css
 

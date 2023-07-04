@@ -225,7 +225,6 @@ img {
   color: #333;
 }
 
-
 .banner-container {
   display: flex;
   flex-direction: row;
@@ -253,6 +252,7 @@ img {
   justify-content: space-between;
 }
 
+/*todo: Doesn't seem to be attached to any HTML element */
 .tank-num {
   flex-grow: 1;
   align-self: center;
@@ -284,6 +284,7 @@ img {
   /* border: 1px solid black; */
 }
 
+/*todo: Doesn't seem to be attached to any HTML element */
 /* .left > div > p */
 .flavor-box {
   display: flex;
@@ -325,6 +326,7 @@ p .flavor {
   padding: 0.25rem 0.75rem 0.25rem 0.75rem;
 }
 
+/* todo: make color variable */
 .notes-1,
 .notes-2,
 .note-3 {
