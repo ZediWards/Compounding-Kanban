@@ -1,8 +1,9 @@
-## CSS files
+# CSS files
 
+<!-- ! still to look at: tank modal and svg css -->
 </br>
 
-Big take aways:
+## Big take aways:
 
 - dealing with overflow
   <!-- todo example -->
@@ -10,12 +11,32 @@ Big take aways:
 - Difference between :root & \* and how they stack up to style library linked cdn
 - need to use CSS variables for color so there aren't strays in cod base
 - used flex-grow: 1 a good bit to get different elements to take up more space than the others
+- media queries to display different element and hide others
+- using ::before to set and alter a second background-image without altering the elements original background-image
+- using "order" on flex children to rearrange document flow (not accessible friendly)
+  </br>
+  </br>
 
 ---
 
-### Main.css
+</br>
+</br>
 
-Global settings
+## Things to make better:
+
+- not making Main heading shift when the navigation link increases in size on hover
+- not having the hidden sequence ol increase the height of the run container upon display: block
+  </br>
+  </br>
+
+---
+
+</br>
+</br>
+
+## ~ Main.css ~
+
+### Global settings
 
 - color variables, box-sizing, image max-width
 
@@ -40,8 +61,9 @@ img {
 ```
 
 </br>
+</br>
 
-Tank gradient / images
+### Tank gradient / images
 
 - Used gradient and background-image that matched the flavor in the tank
 - To be able to transform: rotate the PNG image without rotating the gradient as well, I applied the PNG to the pseudo ::before for that class
@@ -71,8 +93,9 @@ Tank gradient / images
 ```
 
 </br>
+</br>
 
-Kanban Grid Container
+### Kanban Grid Container
 
 - Mobile first using minmax(px, fr) for column and rows
 - Used grid-template-areas
@@ -106,8 +129,9 @@ Kanban Grid Container
 ```
 
 </br>
+</br>
 
-Header and Nav
+### Header and Nav
 
 - nav link font-size increase transition upon hover
 - link gets swapped out for gear ican via media query
@@ -150,8 +174,9 @@ Header and Nav
 ```
 
 </br>
+</br>
 
-Tank box (grid item)
+### Tank box (grid item)
 
 - flex column
 
@@ -167,21 +192,148 @@ Tank box (grid item)
   ```
 
   </br>
+  </br>
 
-Sequence Run
+### Sequence Run
 
 <!-- todo: does the container need to be flex if its child is also flex? -->
 
-- made it nowrap and let it overflow: scroll for screens under 1000px
+- made it nowrap and let it overflow: scroll for screens under 1000px (media query)
+  </br>
+  </br>
+
+### Sequence card (container div with 2 children)
+
+- flex to stretch to bottom and min-height set to keep it from shrinking too much
+- js event: mouseIn, mouseOut, click: hides container div and shows .modal-tooltip.
+  </br>
+
+Child 1 (hidden ol element with run amount) shows upon hover
+
+- display relative: "relative to itself", stays in flow and any adjustments are in relation to where its natural position is supposed to be, allows z-index setting, limits scope of absolute positioned children. No real need for "relative" setting since I didn't nudge it around at all.
+- animation used on this element:
+
+```css
+.modal-tooltip {
+  /* other stuff ... */
+  -webkit-animation-name: animate-on-top;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animate-on-top;
+  animation-duration: 0.2s;
+}
+```
+
+<!-- todo: make animation longer, what other kinds are there? -->
+</br>
+
+Child 2 non-hovered run info
+
+- card div flex to spit it into 2 section
+
+  - first section: flex column and justify-content: flex-end to push everything to bottom
+  - second section: flex: column. Set width to 75px but min-width: fit-content. This is pretty much saying min-width: 75px and max-width: fit-content.
+  <!-- todo: change to min-width and max-width -->
+
+  - did same double background as the tank boxes (::before and js)
+
+</br>
+</br>
+
+### Notes Section
+
+- Container flex: column and I set the oder of the children to get the div I wanted on bottom. Not really accessible friendly.
+  - last div margin was set to push it down to the bottom of the parent
+
+```css
+.note-btn-container {
+  order: 3;
+  margin-block-start: auto;
+}
+```
+
+- buttons- modal is from style library (uikit)
+  </br>
+  </br>
+
+### Media Queries
+
+- default mobile 1fr columns
+- @500px: changed to 2 column wide
+<!-- todo: 500px media query grid-template-rows sets 4 rows when there is 7. Looks fine though -->
+- @1000px: changed to 3 columns wide and "notes" area spanning down the right side.
+
+```css
+@media only screen and (min-width: 500px) {
+  .main-kanban-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:
+      repeat(1, auto) repeat(2, 1fr)
+      repeat(2, 0.6fr);
+    grid-template-areas:
+      "Header Header"
+      "T1 T2"
+      "T3 T4"
+      "T5 T6"
+      "L1 L1"
+      "L2 L2"
+      "Notes Notes";
+  }
+}
+
+/* tweak col & row px sizes old 476px*/
+@media only screen and (min-width: 1000px) {
+  .main-kanban-container {
+    height: 100vh;
+    /* border: 1px solid red; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:
+      repeat(1, auto) repeat(2, 1fr)
+      repeat(2, 0.6fr);
+    grid-template-areas:
+      "Header Header Header Header"
+      "T1 T2 T3 Notes"
+      "T4 T5 T6 Notes"
+      "L1 L1 L1 Notes"
+      "L2 L2 L2 Notes";
+  }
+}
+```
+
+</br>
+- run sequence flex container is nowrap until 1000px
+```css
+@media only screen and (max-width: 1000px) {
+  .l1-runs-inner,
+  .l2-runs-inner {
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+    overflow: scroll;
+  }
+}
+```
+
+- changing link-icon to link-text at 500px
+
+```css
+@media only screen and (max-width: 500px) {
+  .gear-icon {
+    display: block;
+  }
+
+  .admin-link {
+    display: none;
+  }
+}
+```
 
 </br>
 </br>
 
 ---
 
-### Admin-main.css
+## Admin-main.css
 
-Global settings
+### Global settings
 
 - pretty much just color variables in :root and simple settings under \*
 
@@ -205,8 +357,9 @@ Global settings
 ```
 
 </br>
+</br>
 
-Icons
+### Icons
 
 - I used font-awesome local free svg icon files
 - Slight transforms on hover and changing the color
@@ -238,8 +391,9 @@ Icons
 ```
 
 </br>
+</br>
 
-Border gradients to match flavor selected
+### Border gradients to match flavor selected
 
 - Made out all the borders as seperate classes then used JavaScript switch statement to add/remove classes with a change event listener
 
@@ -253,4 +407,5 @@ li .blueberry-flavor-border {
 }
 ```
 
+</br>
 </br>
