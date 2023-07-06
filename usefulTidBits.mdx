@@ -1,6 +1,7 @@
 # CSS files
 
 <!-- ! still to look at: tank modal and svg css -->
+
 </br>
 
 ## Big take aways:
@@ -191,7 +192,7 @@ img {
   }
   ```
 
-  </br>
+    </br>
   </br>
 
 ### Sequence Run
@@ -224,6 +225,7 @@ Child 1 (hidden ol element with run amount) shows upon hover
 ```
 
 <!-- todo: make animation longer, what other kinds are there? -->
+
 </br>
 
 Child 2 non-hovered run info
@@ -405,6 +407,160 @@ li .blueberry-flavor-border {
       rgba(252, 251, 252, 1)
     ) 1;
 }
+```
+
+</br>
+</br>
+
+# HTML files
+
+</br>
+
+## Big take aways:
+
+-
+- </br>
+  </br>
+
+---
+
+</br>
+</br>
+
+## Index.html
+
+### Skeleton to use JavaScript to latch onto the IDs and creatElements off of.
+
+- body
+  - grid container
+    - grid children (usually flex containers)
+      - svg of tanks inside tank container (hidden)
+        - **hard coded and manipulated with javascript to put where it needs to go in the modal box**
+      - sequence containers have header and arrow div hard coded
+      - notes container have btns container with UIKIT modals hard coded
+    - everything else is created with javascript using the database info
+- imported local font awesome js files to use
+- imported uikit stuff for notes modals
+  **modules**
+  A mechanisms for splitting JavaScript programs up into separate modules that can be imported when needed. Node.js has had this ability for a long time...
+  This is how I built the rest of the html with javascript.
+  Use of native JavaScript modules is dependent on the import and export statements;
+- kanbanBuilds.js has all modules imported into it and it calls a build funtion that fires all of them off
+
+```html
+<script type="module" src="./js/kanbanBuilds.js"></script>
+```
+
+</br>
+</br>
+
+## admin.html
+
+### Skeleton to use JavaScript to latch onto the IDs and creatElements off of.
+
+UiKit structure
+I used their switcher class "uk-tab-left"
+
+- this puts the selectable tabs to the left.
+- the ul element also has a "uk-tab="connect: #component-tab-left" class
+  - this links the list-items within the switcher unordered list to the list-items of an unordered-list with the id: "component-tab-left"
+  - first li linked to frist li, second li linked to second li and so on
+
+The content of the li's linked to the switcher were hard coded forms with the values and inputs dynamically created by JavaScript via classNames and Id's
+
+- see JS section on details
+
+Tank Form sections
+
+value options hard coded:
+
+  <!-- todo: generate select options & stage radios via database -->
+
+- flavors are hard coded
+- stage radios
+  values via database (all):
+- product type
+- sequence input
+- stage
+- note inputs 1-3
+- volume input
+- cans input
+
+event listeners (catching bubbles)
+
+- change listener added to the div parent of the form
+
+  - enables the btn when a value within the form is changed
+
+- submit listener added to the form
+  - submit btn is type="submit"
+  - updates the database with form info when the button is clicked
+
+**modules & script tags**
+uikit scripts and stylesheet link
+
+```html
+<!-- main uikit structure -->
+<div class="uk-child-width-1-1@s" uk-grid>
+  <div>
+    <!-- switcher stuff starts here -->
+    <div uk-grid>
+      <div class="uk-width-auto@m">
+        <ul
+          class="uk-tab-left"
+          uk-tab="connect: #component-tab-left; animation: uk-animation-fade">
+          <li><a id="Tank-1-get" href="#">Tank 1</a></li>
+          <li><a id="Tank-2-get" href="#">Tank 2</a></li>
+          <li><a id="Tank-3-get" href="#">Tank 3</a></li>
+          <li><a id="Tank-4-get" href="#">Tank 4</a></li>
+          <li><a id="Tank-5-get" href="#">Tank 5</a></li>
+          <li><a id="Tank-6-get" href="#">Tank 6</a></li>
+          <li><a id="Line1-get-and-list" href="#">Line 1 Runs</a></li>
+          <li><a id="Line2-get-and-list" href="#">Line 2 Runs</a></li>
+          <li><a id="note-get-and-list" href="#">Notes</a></li>
+        </ul>
+      </div>
+      <div class="uk-width-expand@m admin-expand-limiter">
+        <ul id="component-tab-left" class="uk-switcher">
+          <!-- Tank 1-  -->
+          <li></li>
+          <!-- Tank 2-  -->
+          <li></li>
+          <!-- Tank 3-  -->
+          <li></li>
+          <!-- Tank 4-  -->
+          <li></li>
+          <!-- Tank 5-  -->
+          <li></li>
+          <!-- Tank 6-  -->
+          <li></li>
+          <!-- Line 1 Run List -->
+          <li></li>
+          <!-- Line 2 Run List -->
+          <li></li>
+          <!-- Notes -->
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <!-- switcher stuff ends here -->
+  </div>
+</div>
+
+<!-- update btn -->
+<button
+  class="uk-button uk-width-1-1 uk-button-primary tank-1-update-btn"
+  type="submit"
+  disabled="true">
+  Update
+</button>
+
+<!-- js modules -->
+<script type="module" src="./js/admin.js"></script>
+<script type="module" src="./js/submitForm.js"></script>
+<script
+  type="module"
+  src="js/modules/admin/secondShift/secondShift.js"></script>
 ```
 
 </br>
