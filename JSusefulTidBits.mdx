@@ -1,0 +1,87 @@
+# JavaScript files
+
+</br>
+
+## Big take aways:
+
+- module script tag in index.html and admin.html run a function that runs all the functions that build the html
+  </br>
+  </br>
+
+---
+
+</br>
+</br>
+
+## Things to make better:
+
+- </br>
+
+---
+
+</br>
+</br>
+
+## ~ index.html ~
+
+```html
+<script type="module" src="./js/kanbanBuilds.js"></script>
+```
+
+</br>
+</br>
+
+kanbanBuilds.js
+
+```js
+function build() {
+  checkLocalStorage();
+  // tankModal();
+  getStuff(); //build modals as well
+  showTankModal();
+  // waitingToshowTankModal();
+  getLine1Runs();
+  getLine2Runs();
+  getNote();
+  getSecond();
+  // showToolTip();
+  // hideToolTip();
+}
+
+build();
+```
+
+</br>
+</br>
+
+### what is going on here
+
+</br>
+</br>
+
+## ~ admin.html ~
+
+```html
+<script type="module" src="./js/admin.js"></script>
+<script type="module" src="./js/submitForm.js"></script>
+<script
+  type="module"
+  src="js/modules/admin/secondShift/secondShift.js"></script>
+```
+
+</br>
+</br>
+
+admin.js
+
+```js
+<!-- stuff -->
+```
+
+</br>
+</br>
+
+### next
+
+</br>
+</br>
