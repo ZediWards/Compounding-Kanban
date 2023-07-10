@@ -466,13 +466,12 @@ function updateModal(e, tankNum) {
   // CONVERTS TO 12 HOUR FORMAT AND RETURNS JUST TIME, NO DATE
   let local12hrChangeOverTime = currentTime.toLocaleTimeString("en-US", {
     hour: "2-digit",
-    minute: "2-digit"
+    minute: "2-digit",
   });
 
   // Inject c/o in DOM
-  let changeOverDisplay = e.target.previousElementSibling.querySelector(
-    ".change-over-time"
-  );
+  let changeOverDisplay =
+    e.target.previousElementSibling.querySelector(".change-over-time");
   changeOverDisplay.textContent = local12hrChangeOverTime;
 
   // Inject Last updated time in DOM
@@ -480,7 +479,7 @@ function updateModal(e, tankNum) {
   let updatedDate = new Date().toDateString();
   let updatedTime = new Date().toLocaleTimeString("en-US", {
     hour: "2-digit",
-    minute: "2-digit"
+    minute: "2-digit",
   });
   lastUpdatedAt.textContent = `Last updated: ${updatedDate} @ ${updatedTime}`;
 

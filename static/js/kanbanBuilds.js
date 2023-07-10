@@ -6,25 +6,18 @@ import getLine2Runs from "./modules/kanban/getLine2.js";
 import getNote from "./modules/kanban/getNote.js";
 import getSecond from "./modules/kanban/secondShift.js";
 // import { showToolTip, hideToolTip } from "./modules/kanban/tooltip.js";
-import {
-  showTankModal,
-  // waitingToshowTankModal,
-} from "./modules/kanban/tank-levels.js";
+import { showTankModal } from "./modules/kanban/tank-levels.js";
 
 // import tankModal from "./modules/kanban/tankModal.js";
 // loading db info into
 function build() {
-  checkLocalStorage();
-  // tankModal();
+  checkLocalStorage(); //check to see if data present in local storage. If not it sets it with jsonDb.js
   getStuff(); //build modals as well
   showTankModal();
-  // waitingToshowTankModal();
   getLine1Runs();
   getLine2Runs();
   getNote();
   getSecond();
-  // showToolTip();
-  // hideToolTip();
 }
 
 build();
