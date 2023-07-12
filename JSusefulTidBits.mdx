@@ -52,6 +52,37 @@ build();
 
 ### what is going on here
 
+- checkLocalStorage()
+  - When Kanban loads up this checks to see if the object "jsonDb" is present in the browsers local storage. If it is not present, it creates and sets the object to the dummy data to the variable jsonDb that I imported at the top of the file.
+
+```js
+import { jsonDb } from "../js/modules/jsonDb.js";
+// Other imports and stuff...
+
+function checkLocalStorage() {
+  const state = window.localStorage.getItem("jsonDb");
+  if (state) {
+    return JSON.parse(state);
+  } else {
+    // passing a key and adding the object as it's value
+    window.localStorage.setItem("jsonDb", JSON.stringify(jsonDb));
+  }
+}
+```
+
+</br>
+</br>
+
+- ## getStuff()
+
+```js
+import getStuff from "./modules/kanban/getTanks.js";
+// Other imports and stuff...
+
+// called inside the build()
+This is where I left off
+```
+
 </br>
 </br>
 
