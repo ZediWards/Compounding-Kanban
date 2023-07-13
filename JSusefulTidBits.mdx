@@ -64,7 +64,7 @@ function checkLocalStorage() {
   if (state) {
     return JSON.parse(state);
   } else {
-    // passing a key and adding the object as it's value
+    // passong a key and adding the objecst as it's value
     window.localStorage.setItem("jsonDb", JSON.stringify(jsonDb));
   }
 }
@@ -73,14 +73,139 @@ function checkLocalStorage() {
 </br>
 </br>
 
-- ## getStuff()
+- getStuff()
+
+ <!-- notable things in the file -->
+
+- gets localStorage data
+- some methods used: .className, .setAttribute(type, disabled, for, ), .textContent
+- map over tank array and builds html elements using the objects key:value pairs
+- append a (visibility:hidden) hardcoded html svg to a dynamically built element and remove the hidden style
+- form submit that fires updateModal()
+- .map to build options for select element
+- .map over array to build mutiple paragraph elements
+- build element, add className, if statement to override class styles if textContent is empty string
+- if statement to display different textContent if a value in the object === 0
 
 ```js
-import getStuff from "./modules/kanban/getTanks.js";
-// Other imports and stuff...
+// ************** USING LOCAL STORAGE **************************
+  const jsonDb = JSON.parse(window.localStorage.getItem("jsonDb"));
+  // ************************************************************
+  try {
+  // Mapping over the tanks
+const tanks = jsonDb.tanks.map((tank) => {
+  // building, adding classes, appending html elements for each tank
+  //
+  //
+  //
+  // SVG **hard coded but hidden. js appends to container and takes off hidden class**
+  // also super fragile targeting
+  const svg = document.querySelector(`.${tank.dom_target}-svg`); //tank-#-svg
+      const svgLocationTarget =
+        svg.nextElementSibling.children[2].children[0].children[1];
+      svgLocationTarget.appendChild(svg);
+      svg.classList.remove("hidden");
 
-// called inside the build()
-This is where I left off
+  // switch statement to change the .stop1 etc colors on the tank svg based on flavor
+  //
+  //
+  //
+  // modal form update on submit event listener
+  modalForm.addEventListener("submit", function (e) {
+        updateModal(e, tank.dom_target);
+      });
+
+  // building a select element from localStorage data and using unshift to add an empty array for the first option
+      const canSizes = jsonDb.canData.map((can) => {
+        return can.size;
+      });
+      const canSizeSelectArr = canSizes.unshift("");
+      // ***********************************************************
+      const canSizesSelectOptions = canSizes.map((size) => {
+        const option = document.createElement("option");
+        option.textContent = `${size}`;
+        canSizesSelect.appendChild(option);
+      });
+
+    // using an array to map over and build paragraph elements to reduce the amount of repitition
+      const buttonParagraphs = ["Update Tank Level", "&", "Change Over Time"];
+      const modalFormButtonParagraphs = buttonParagraphs.map((para) => {
+        const paraElement = document.createElement("p");
+        paraElement.textContent = `${para}`;
+        paraElement.className = "modal-btn-p";
+        modalFormButton.appendChild(paraElement);
+      });
+
+      // using switch statement to apply className to give the gradient to match the flavor of the tank
+      // line 240
+
+      // appyling styles to an element if the textContent set is not an empty stringify
+      // js styles will override the css class styles if it is an empty string
+      let notes1P = document.createElement("p");
+      notes1P.className = "notes-1";
+      notes1P.textContent = `${tank.note_1}`;
+      topBox.appendChild(notes1P);
+      notes1PCheck();
+      function notes1PCheck() {
+        if (notes1P.textContent === "") {
+          notes1P.style.display = "none";
+          notes1P.style.backgroundColor = "none";
+          notes1P.style.border = "none";
+        } else {
+          return;
+        }
+      }
+
+      // simple if/else statement to display two different things depending on the value in the tank object from local storage
+       let gallonP = document.createElement("p");
+      if (tank.volume === 0) {
+        gallonP.textContent = "Gallons:";
+      } else {
+        gallonP.textContent = `Gallons: ${tank.volume}`;
+      }
+
+  }
+   } catch (err) {
+    console.error(err.message);
+  }
+
+export default getStuff;
+```
+
+</br>
+</br>
+
+- updateModal()
+<!-- notable things in the file -->
+- passing in the event and the tankNum
+- gets localStorage data
+- filter tankParams array by the array item (object) having the .tank value === to tankNum that was passed into the updateModal()
+- destructuring the values from the filtered array object to use in calculations needed to update the modal information
+-
+
+```js
+function updateModal(e, tankNum) {
+  e.preventDefault();
+  e.stopPropagation();
+  // <!-- // ************** USING LOCAL STORAGE ************************** -->
+  const jsonDb = JSON.parse(window.localStorage.getItem("jsonDb"));
+  //
+  //
+  // getting and destructuring tank data from tankParams
+  function tankObj(tankNum) {
+    return jsonDb.tankParams.filter((tankObj) => {
+      return tankObj.tank === tankNum;
+    });
+  }
+
+  const result = tankObj(tankNum)[0];
+  const { tank, bottomProp, max, tankV } = result;
+  //
+  //
+  //
+  //
+  //
+}
 ```
 
 </br>
