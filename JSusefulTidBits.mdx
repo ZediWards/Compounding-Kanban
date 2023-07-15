@@ -177,11 +177,36 @@ export default getStuff;
 
 - updateModal()
   <!-- notable things in the file -->
+
+  - **passing in the event into the function gives the ability to start there when targeting DOM elements. This will make .querySelector and .closest work pretty well.**
   - passing in the event and the tankNum
+
+    - event: used to target DOM elements
+    - tankNum: used in .filter to get the tank I need
+
   - gets localStorage data
+
   - filter tankParams array by the array item (object) having the .tank value === to tankNum that was passed into the updateModal()
   - destructuring the values from the filtered array object to use in calculations needed to update the modal information
-  -
+
+  - creating varibles for all DOM elements needed for calculations/displaying data
+  - filter to get tank info and destructuring out the volume, cans data
+
+  - "+" operator to turn string into num
+  - returning an {} by filtering an [] of {}'s by matching the value of a key inside the object
+
+  - doing math with variables and displaying results in DOM
+    - Math.round()
+    -
+  - Date stuff **tweet**
+
+    - getting the current 2-digit hour and 2-digit min
+    - things used
+      - new Date()
+      - .getMinutes(), .toLocalTimeString, toDateString()
+
+  - grab and set svg gradient stops based on math
+    - would make a good **article** along with how I made the svg with tank measurements
 
 ```js
 function updateModal(e, tankNum) {
@@ -191,7 +216,7 @@ function updateModal(e, tankNum) {
   const jsonDb = JSON.parse(window.localStorage.getItem("jsonDb"));
   //
   //
-  // getting and destructuring tank data from tankParams
+  // filtering and destructuring tank data from tankParams
   function tankObj(tankNum) {
     return jsonDb.tankParams.filter((tankObj) => {
       return tankObj.tank === tankNum;
@@ -202,10 +227,63 @@ function updateModal(e, tankNum) {
   const { tank, bottomProp, max, tankV } = result;
   //
   //
+  //TODO try and see if .closest will work instead of .parentElement
+  //const svg = e.target.parentElement.parentElement.querySelector("svg");
   //
   //
-  //
+  // getting and destructuring canData
+  // lesson: needed + operator to convert input from string to number
+  // lesson: filtering an array of objects by matching a value of a key inside the object
+  function canDataObj(inputCanSize) {
+    return jsonDb.canData.filter((canData) => {
+      return canData.size === +inputCanSize;
+    });
+  }
+
+  const canDataResults = canDataObj(inputCanSize)[0];
+  const { size, cpg, cph } = canDataResults;
 }
+//
+//
+// doing math with variables and displaying them in the DOM
+// Set Bottom Prop Number with cpg
+let cansToSaveAtBottomProp = bottomProp * cpg;
+propNumberSvg.textContent = `${cansToSaveAtBottomProp} Cans`;
+//
+//
+// Nice TWEET option
+// Current time
+let currentTime = new Date();
+
+// Minutes of run time left
+let minutesOfRunTimeLeft = (cansLeftToRun / cph) * 60;
+
+// ADDING MINUTES TO CURRENT LOCAL TIME. Not needed if just want to convert Date() to 12 hour format
+currentTime.setMinutes(currentTime.getMinutes() + minutesOfRunTimeLeft);
+
+// CONVERTS TO 12 HOUR FORMAT AND RETURNS JUST TIME, NO DATE
+let local12hrChangeOverTime = currentTime.toLocaleTimeString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+// Another example if using Date()
+// Inject Last updated time in DOM
+let lastUpdatedAt = svg.querySelector(".last-updated");
+let updatedDate = new Date().toDateString();
+let updatedTime = new Date().toLocaleTimeString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+});
+lastUpdatedAt.textContent = `Last updated: ${updatedDate} @ ${updatedTime}`;
+//
+//
+// disable the update btn once function runs
+const modalUpdateBtn = e.target.querySelector(".modal-update-btn");
+modalUpdateBtn.disabled = true;
+//
+//
+//
 ```
 
 </br>
